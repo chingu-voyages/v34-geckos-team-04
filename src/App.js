@@ -1,7 +1,7 @@
 const App = () => {
   return (
     <div>
-      <p>staging branch</p>
+      <p className="text-red-700">development</p>
     </div>
   );
 };
