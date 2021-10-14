@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useGoogleLogin } from 'react-google-login';
+import { UserContext } from '../contexts/UserContext';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 const LoginPage = () => {
+  const { userData, setUserData } = useContext(UserContext);
+
   const onSuccess = (res) => {
     console.log('Logged in!');
     console.log('response:', res);
+
+    const { name, email, imageUrl } = res.profileObj;
+    setUserData({ name, email, imageUrl });
   };
 
   const onFailure = (res) => {
@@ -22,7 +28,7 @@ const LoginPage = () => {
   });
 
   return (
-    <React.Fragment>
+    <div className='h-screen '>
       <button
         className='bg-white border rounded-full hover:bg-blue-50 hover:border-blue-200 flex flex-row justify-center leading-8 transition duration-200 pl-1 pr-4 py-2'
         onClick={signIn}
@@ -134,7 +140,7 @@ const LoginPage = () => {
         </svg>
         <span>Sign in with Google</span>
       </button>
-    </React.Fragment>
+    </div>
   );
 };
 export default LoginPage;
