@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import { UserContext } from '../contexts/UserContext';
+import loginPagePic from '../assets/login_page.png';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
@@ -28,7 +29,9 @@ const LoginPage = () => {
   });
 
   return (
-    <div className='h-screen '>
+    <div className='flex flex-col h-screen w-screen items-center justify-around'>
+      <h1 className='text-6xl font-bold'>Meeting App?</h1>
+      <img src={loginPagePic} alt='Meeting app' />
       <button
         className='bg-white border rounded-full hover:bg-blue-50 hover:border-blue-200 flex flex-row justify-center leading-8 transition duration-200 pl-1 pr-4 py-2'
         onClick={signIn}
