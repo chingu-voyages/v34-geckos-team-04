@@ -16,7 +16,7 @@ const LoginPage = () => {
     console.log('response:', res);
 
     const { name, email, imageUrl } = res.profileObj;
-    setUserData({ name, email, imageUrl });
+    setUserData({ loggedIn: true, name, email, imageUrl });
   };
 
   const onFailure = (res) => {
