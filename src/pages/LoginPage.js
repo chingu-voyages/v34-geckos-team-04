@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import { UserContext } from '../contexts/UserContext';
 import loginPagePic from '../assets/login_page.png';
 import GoogleLogo from '../components/shared/GoogleLogo';
+import Alert from '../components/shared/Alert';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 const LoginPage = () => {
   const { userData, setUserData } = useContext(UserContext);
+  const [error, setError] = useState(null);
 
   const onSuccess = (res) => {
     console.log('Logged in!');
@@ -19,7 +21,11 @@ const LoginPage = () => {
 
   const onFailure = (res) => {
     console.log('Login failed!', res);
+    setError(res.details);
   };
+
+  // onSuccess and onFailure are required callbacks for login
+  // if isSignedIn true it will return user data on load, if user gave the app permission
 
   const { signIn } = useGoogleLogin({
     onSuccess,
@@ -40,6 +46,7 @@ const LoginPage = () => {
         <GoogleLogo width='32px' height='32px' />
         <span>Sign in with Google</span>
       </button>
+      {error && <Alert error='Login failed!' detail={error} />}
     </div>
   );
 };
