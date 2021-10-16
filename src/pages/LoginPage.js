@@ -8,7 +8,7 @@ import Alert from '../components/shared/Alert';
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 const LoginPage = () => {
-  const { userData, setUserData } = useContext(UserContext);
+  const { setUserData } = useContext(UserContext);
   const [error, setError] = useState(null);
 
   const onSuccess = (res) => {
@@ -20,7 +20,7 @@ const LoginPage = () => {
   };
 
   const onFailure = (res) => {
-    console.log('Login failed!', res);
+    console.error('Login failed!', res);
     setError(res.details);
   };
 
