@@ -1,14 +1,16 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const events = [
   {
     id: 'event1',
     name: 'EVENT-1',
     desc: 'Description of Event-1',
     start: '2021-10-28T09:00:00',
-    end: '2021-10-28T19:00:00',
+    end: '2021-10-29T19:00:00',
     creator: 'Emir',
     todos: [
-      { name: 'TODO-1', status: false, assignees: 'Emir' },
-      { name: 'TODO-2', status: true, assignees: 'Patrik' },
+      { id: uuidv4(), name: 'TODO-1', status: false, assignees: 'Emir' },
+      { id: uuidv4(), name: 'TODO-2', status: true, assignees: 'Patrik' },
     ],
   },
   {
@@ -19,8 +21,8 @@ const events = [
     end: '2021-10-29T19:00:00',
     creator: 'Patrik',
     todos: [
-      { name: 'TODO-1', status: false, assignees: 'Emir' },
-      { name: 'TODO-2', status: true, assignees: 'Patrik' },
+      { id: uuidv4(), name: 'TODO-1', status: false, assignees: 'Emir' },
+      { id: uuidv4(), name: 'TODO-2', status: true, assignees: 'Patrik' },
     ],
   },
   {
@@ -31,8 +33,8 @@ const events = [
     end: '2021-10-30T19:00:00',
     creator: 'Teri',
     todos: [
-      { name: 'TODO-1', status: false, assignees: 'Emir' },
-      { name: 'TODO-2', status: true, assignees: 'Patrik' },
+      { id: uuidv4(), name: 'TODO-1', status: false, assignees: 'Emir' },
+      { id: uuidv4(), name: 'TODO-2', status: true, assignees: 'Patrik' },
     ],
   },
   {
@@ -43,8 +45,8 @@ const events = [
     end: '2021-10-31T19:00:00',
     creator: 'Aya',
     todos: [
-      { name: 'TODO-1', status: false, assignees: 'Emir' },
-      { name: 'TODO-2', status: true, assignees: 'Patrik' },
+      { id: uuidv4(), name: 'TODO-1', status: false, assignees: 'Emir' },
+      { id: uuidv4(), name: 'TODO-2', status: true, assignees: 'Patrik' },
     ],
   },
   {
@@ -55,8 +57,8 @@ const events = [
     end: '2021-10-01T19:00:00',
     creator: 'Jihye',
     todos: [
-      { name: 'TODO-1', status: false, assignees: 'Emir' },
-      { name: 'TODO-2', status: true, assignees: 'Patrik' },
+      { id: uuidv4(), name: 'TODO-1', status: false, assignees: 'Emir' },
+      { id: uuidv4(), name: 'TODO-2', status: true, assignees: 'Patrik' },
     ],
   },
 ];
