@@ -1,5 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { Icon } from '@iconify/react';
+import profilePic from '../assets/profile-pic-dummy.jpg';
 
 const menu = [
   { name: 'Home', icon: 'fa-solid:home' },
@@ -33,7 +34,7 @@ const MenuBar = () => {
     return (
       <li
         key={icon.name}
-        className='lg:flex lg:w-full lg:justify-start lg:items-center lg:m-4 lg:my-8 lg:px-4'
+        className='lg:flex lg:w-full lg:justify-start lg:items-center lg:my-8'
       >
         <Icon
           icon={icon.icon}
@@ -50,10 +51,13 @@ const MenuBar = () => {
   });
 
   return (
-    <nav className='bg-white w-screen h-20 fixed -bottom-0 lg:bg-gray-400 lg:w-56 lg:h-screen lg:py-10'>
+    <nav className='bg-white w-screen h-20 fixed -bottom-0 lg:bg-gray-400 lg:w-56 lg:h-screen lg:py-10 lg:flex lg:flex-col lg:p-4'>
       <ul className='h-full flex justify-around items-center lg:flex-col lg:justify-start'>
         {icon}
       </ul>
+      {largeScreen && (
+        <img src={profilePic} alt='Profile Picture' className='h-12 w-12 m-2' />
+      )}
     </nav>
   );
 };
