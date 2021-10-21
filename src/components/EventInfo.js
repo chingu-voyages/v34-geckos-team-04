@@ -2,7 +2,7 @@ import ToDoItem from './ToDoItem';
 import { useContext } from 'react';
 import handleTime from '../utils/handleTime';
 import { EventsContext } from '../contexts/EventsContext';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 export default function EventInfo(props) {
   const { eventId } = useParams();
@@ -37,6 +37,15 @@ export default function EventInfo(props) {
 
   return (
     <li>
+      {/* Link is temporary until menu/header merged */}
+      {/* It adds ability to go back to events page on mobile screens */}
+      <Link
+        to='/events'
+        onClick={() => props.setActiveEvent(false)}
+        className='inline-block lg:hidden'
+      >
+        Back to events
+      </Link>
       <p>{event.name}</p>
       <p>{event.desc}</p>
       <p>{handleTime(event.start, event.end)}</p>

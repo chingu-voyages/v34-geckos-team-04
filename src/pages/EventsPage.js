@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 
 export default function EventsPage() {
-  const [activeEvent, setActiveEvent] = useState(null);
+  const [activeEvent, setActiveEvent] = useState(false);
   const { eventData: events } = useContext(EventsContext);
 
   return (
@@ -36,7 +36,8 @@ export default function EventsPage() {
         >
           <Switch>
             <Route path={`/events/:eventId`}>
-              <EventInfo />
+              {/* setActiveEvent prop is temporary until menu/header merged */}
+              <EventInfo setActiveEvent={setActiveEvent} />
             </Route>
             <Route path='*'>
               <p>Select an event to view</p>
