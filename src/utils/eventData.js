@@ -21,8 +21,8 @@ const events = [
     end: '2021-10-29T19:00:00',
     creator: 'Patrik',
     todos: [
-      { id: uuidv4(), name: 'TODO-1', status: false, assignees: 'Emir' },
-      { id: uuidv4(), name: 'TODO-2', status: true, assignees: 'Patrik' },
+      { id: uuidv4(), name: 'TODO-3', status: false, assignees: 'Emir' },
+      { id: uuidv4(), name: 'TODO-4', status: true, assignees: 'Patrik' },
     ],
   },
   {
@@ -33,8 +33,8 @@ const events = [
     end: '2021-10-30T19:00:00',
     creator: 'Teri',
     todos: [
-      { id: uuidv4(), name: 'TODO-1', status: false, assignees: 'Emir' },
-      { id: uuidv4(), name: 'TODO-2', status: true, assignees: 'Patrik' },
+      { id: uuidv4(), name: 'TODO-5', status: false, assignees: 'Emir' },
+      { id: uuidv4(), name: 'TODO-6', status: true, assignees: 'Patrik' },
     ],
   },
   {
@@ -45,8 +45,8 @@ const events = [
     end: '2021-10-31T19:00:00',
     creator: 'Aya',
     todos: [
-      { id: uuidv4(), name: 'TODO-1', status: false, assignees: 'Emir' },
-      { id: uuidv4(), name: 'TODO-2', status: true, assignees: 'Patrik' },
+      { id: uuidv4(), name: 'TODO-7', status: false, assignees: 'Emir' },
+      { id: uuidv4(), name: 'TODO-8', status: true, assignees: 'Patrik' },
     ],
   },
   {
@@ -57,8 +57,8 @@ const events = [
     end: '2021-10-01T19:00:00',
     creator: 'Jihye',
     todos: [
-      { id: uuidv4(), name: 'TODO-1', status: false, assignees: 'Emir' },
-      { id: uuidv4(), name: 'TODO-2', status: true, assignees: 'Patrik' },
+      { id: uuidv4(), name: 'TODO-9', status: false, assignees: 'Emir' },
+      { id: uuidv4(), name: 'TODO-10', status: true, assignees: 'Patrik' },
     ],
   },
 ];
