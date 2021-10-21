@@ -1,11 +1,11 @@
 import EventItem from '../components/EventItem.js';
 import EventInfo from '../components/EventInfo.js';
 import { useState, useContext } from 'react';
-import events from '../utils/eventData.js';
+import { EventsContext } from '../contexts/EventsContext.js';
 
 export default function EventsPage() {
   const [activeEvent, setActiveEvent] = useState(null);
-  // const { eventData: events } = useContext(EventsContext);
+  const { eventData: events } = useContext(EventsContext);
 
   return (
     <div>

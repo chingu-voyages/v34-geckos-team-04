@@ -1,10 +1,12 @@
 import ToDoItem from './ToDoItem';
-import { useState } from 'react';
+import { useContext } from 'react';
 import handleTime from '../utils/handleTime';
+import { EventsContext } from '../contexts/EventsContext';
 
 export default function EventInfo(props) {
   const { event } = props;
-  const [todos, setTodos] = useState(event.todos);
+  const { eventData, setEventData } = useContext(EventsContext);
+  const todos = event.todos;
 
   function handleToDoDoneClick(todoClicked) {
     const doneTodos = todos.map((todo) => {
@@ -14,7 +16,16 @@ export default function EventInfo(props) {
         return todo;
       }
     });
-    setTodos(doneTodos);
+    // updates EventsContext
+    setEventData(
+      eventData.map((e) => {
+        if (event.id === e.id) {
+          return { ...e, todos: doneTodos };
+        } else {
+          return e;
+        }
+      })
+    );
   }
 
   return (
