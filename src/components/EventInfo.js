@@ -2,10 +2,17 @@ import ToDoItem from './ToDoItem';
 import { useContext } from 'react';
 import handleTime from '../utils/handleTime';
 import { EventsContext } from '../contexts/EventsContext';
+import { useParams } from 'react-router-dom';
 
 export default function EventInfo(props) {
-  const { event } = props;
+  const { eventId } = useParams();
   const { eventData, setEventData } = useContext(EventsContext);
+  const event = eventData.find((e) => e.id === eventId);
+
+  if (event === undefined) {
+    return <p>Event doesn't exist!</p>;
+  }
+
   const todos = event.todos;
 
   function handleToDoDoneClick(todoClicked) {
