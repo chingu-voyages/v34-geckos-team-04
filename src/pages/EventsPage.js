@@ -19,9 +19,11 @@ export default function EventsPage() {
       <Router>
         {!activeEvent && <Redirect to='/events' />}
         <div
-          className={`event-item-container ${activeEvent && 'hidden lg:block'}`}
+          className={`event-item-container ${
+            activeEvent && 'hidden lg:flex'
+          } lg:w-1/3 flex justify-center`}
         >
-          <ul>
+          <ul className='flex flex-col space-y-8 justify-center min-h-screen'>
             {events.map((event) => (
               <Link key={event.id} to={`/events/${event.id}`}>
                 <EventItem event={event} onClick={() => setActiveEvent(true)} />
@@ -31,8 +33,8 @@ export default function EventsPage() {
         </div>
         <div
           className={`event-info-container ${
-            !activeEvent && 'hidden lg:block'
-          }`}
+            !activeEvent && 'hidden lg:flex'
+          } w-screen lg:w-2/3 min-h-screen flex flex-col justify-center`}
         >
           <Switch>
             <Route path={`/events/:eventId`}>
