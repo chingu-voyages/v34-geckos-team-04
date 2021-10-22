@@ -8,9 +8,12 @@ export default function EventItem(props) {
   }
 
   return (
-    <li onClick={handleClick}>
-      <p>{event.name}</p>
-      <p>{handleTime(event.start, event.end)}</p>
+    <li
+      onClick={handleClick}
+      className='bg-red-400 text-white rounded-3xl w-80 h-28 flex flex-col items-center justify-center shadow-2xl'
+    >
+      <p className='text-2xl'>{handleTime(event.start, event.end)}</p>
+      <p className='text-3xl'>{event.name}</p>
     </li>
   );
 }
