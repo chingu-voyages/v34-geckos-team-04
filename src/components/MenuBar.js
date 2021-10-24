@@ -56,7 +56,17 @@ const MenuBar = () => {
         {icon}
       </ul>
       {largeScreen && (
-        <img src={profilePic} alt='Profile Picture' className='h-12 w-12 m-2' />
+        <div className='flex items-center'>
+          <img
+            src={profilePic}
+            alt='Profile Picture'
+            className='h-12 w-12 m-2'
+          />
+          <div>
+            <div>Username</div>
+            <div>email@gmail.com</div>
+          </div>
+        </div>
       )}
     </nav>
   );
