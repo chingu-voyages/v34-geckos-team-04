@@ -21,13 +21,13 @@ const App = () => {
     <div>
       <Router>
         <UserContext.Provider value={{ userData, setUserData }}>
-          {/* <Route exact path='/'>
+          <Route exact path='/'>
             {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
-          </Route> */}
+          </Route>
         </UserContext.Provider>
       </Router>
-      <Header title='Breakfast' link={profilePic} returnBtn={true} />
-      <MenuBar />
+      {/* <Header title='Breakfast' link={profilePic} returnBtn={true} />
+      <MenuBar /> */}
     </div>
   );
 };

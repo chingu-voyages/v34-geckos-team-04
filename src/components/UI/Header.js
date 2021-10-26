@@ -27,7 +27,9 @@ const Header = (props) => {
         <div className='bg-gray-400 absolute top-16 right-1 w-60 shadow-md rounded p-2'>
           <div className='font-bold'>Username</div>
           <div>email@gmail.com</div>
-          <div>SIGN OUT</div>
+          <button className='bg-red-600 rounded text-white mt-5 px-2'>
+            SIGN OUT
+          </button>
         </div>
       )}
     </header>

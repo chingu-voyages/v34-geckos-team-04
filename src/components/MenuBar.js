@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { Icon } from '@iconify/react';
 import profilePic from '../assets/profile-pic-dummy.jpg';
@@ -56,17 +57,20 @@ const MenuBar = () => {
         {icon}
       </ul>
       {largeScreen && (
-        <div className='flex items-center'>
-          <img
-            src={profilePic}
-            alt='Profile Picture'
-            className='h-12 w-12 m-2'
-          />
-          <div>
-            <div>Username</div>
-            <div>email@gmail.com</div>
+        <React.Fragment>
+          <div className='flex items-center'>
+            <img
+              src={profilePic}
+              alt='Profile Picture'
+              className='h-12 w-12 m-2'
+            />
+            <div>
+              <div>Username</div>
+              <div>email@gmail.com</div>
+            </div>
           </div>
-        </div>
+          <button className='bg-red-600 rounded text-white'>SIGN OUT</button>
+        </React.Fragment>
       )}
     </nav>
   );
