@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import { UserContext } from './contexts/UserContext';
 import MenuBar from './components/MenuBar';
-import Header from './components/UI/Header';
+import Header from './components/Header';
 import profilePic from './assets/profile-pic-dummy.jpg';
 
 const App = () => {
