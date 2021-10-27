@@ -17,14 +17,18 @@ const App = () => {
   const { gapi } = window;
   useEffect(() => {
     if (!userData.loggedIn) {
+      // loads auth2 client for Google JS Library
       gapi.load('client:auth2', () => {
+        // gapi.auth2.init() initializes and returns GoogleAuth object
         gapi.auth2
           .init({
             client_id: process.env.REACT_APP_CLIENT_ID,
           })
           .then((googleAuth) => {
+            // GoogleAuth.isSignedIn.get() returns a true if the user is signed in, or false if the user is signed out or the GoogleAuth object isn't initialized.
+            // sets user data if user signed in
             if (googleAuth.isSignedIn.get()) {
-              const googleUser = googleAuth.currentUser.get();
+              const googleUser = googleAuth.currentUser.get(); // Returns a GoogleUser object
               const basicProfile = googleUser.getBasicProfile();
               setUserData({
                 loggedIn: true,
