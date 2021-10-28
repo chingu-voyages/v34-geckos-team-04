@@ -34,7 +34,7 @@ export default function EventsPage() {
         <div
           className={`event-info-container ${
             !activeEvent && 'hidden lg:flex'
-          } w-screen lg:w-2/3 min-h-screen flex flex-col justify-center`}
+          } w-screen lg:w-2/3 min-h-screen flex flex-col justify-center bg-gray-50 border-l`}
         >
           <Switch>
             <Route path={`/events/:eventId`}>
