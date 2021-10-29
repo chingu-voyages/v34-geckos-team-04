@@ -32,7 +32,7 @@ export default function EventsPage() {
           </ul>
         </div>
         <div
-          className={`w-screen lg:w-2/3 flex flex-col bg-gray-50 border-l overflow-y-auto ${
+          className={`w-screen lg:w-2/3 flex flex-col bg-gray-50 border-l overflow-y-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28 ${
             !activeEvent && 'hidden lg:flex'
           }`}
         >

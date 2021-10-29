@@ -63,9 +63,14 @@ export default function EventInfo(props) {
           <p>{event.creator}</p>
         </div>
       </div>
-      <ul>
+      <ul className='bg-red-400 text-black rounded-3xl flex flex-col items-center justify-center shadow-2xl py-6 px-6 max-w-full'>
         {todos.map((todo, index) => (
-          <ToDoItem key={index} todo={todo} onDoneClick={handleToDoDoneClick} />
+          <ToDoItem
+            key={index}
+            todo={todo}
+            onDoneClick={handleToDoDoneClick}
+            prio='hidden'
+          />
         ))}
       </ul>
     </li>
