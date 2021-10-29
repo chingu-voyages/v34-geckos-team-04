@@ -7,21 +7,25 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDateTimePicker from '@mui/lab/DesktopDateTimePicker';
 import TextField from '@mui/material/TextField';
 
-import { setEventDateAndTime } from '../store/events-slice';
+import { setStartDate, setEndDate } from '../store/events-slice';
 
-const DateTimePicker = ({ minDateTime }) => {
+const DateTimePicker = ({ minDateTime, setting }) => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState(new Date());
+  const [date, setDate] = useState(new Date());
 
-  const changeDateHandler = (newValue) => {
-    setValue(newValue);
-    dispatch(setEventDateAndTime(newValue));
+  const changeDateHandler = (newDate) => {
+    setDate(newDate);
+    if (setting === 'start') {
+      dispatch(setStartDate(newDate));
+    } else if (setting === 'end') {
+      dispatch(setEndDate(newDate));
+    }
   };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DesktopDateTimePicker
-        value={value}
+        value={date}
         onChange={changeDateHandler}
         minDateTime={minDateTime}
         renderInput={(params) => <TextField {...params} />}

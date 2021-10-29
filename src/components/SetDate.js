@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import useSelector from 'react-redux';
+import { useSelector } from 'react-redux';
 import DateTimePicker from './DateTimePicker';
 
 const SetDate = () => {
   //   const [startDateAndTime, setStartDateAndTime] = useState(new Date());
   //   const [endDateAndTime, setEndDateAndTime] = useState(new Date());
 
-  const { start, end } = useSelector((state) => state.events.events);
+  const { events } = useSelector((state) => state.events);
+  console.log(events);
+  const selectedEvent = events.find((event) => event.id === 1);
+  console.log(selectedEvent);
 
   return (
     <div>
@@ -17,7 +20,7 @@ const SetDate = () => {
       </div>
       <div>
         <p>Ends</p>
-        <DateTimePicker minDateTime={new Date()} />
+        <DateTimePicker minDateTime={selectedEvent.start} />
       </div>
     </div>
   );

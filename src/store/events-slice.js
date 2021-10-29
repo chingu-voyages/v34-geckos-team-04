@@ -2,21 +2,23 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialEventsState = {
   //I want to get the id of an event
-  events: [],
+  events: [{ id: 1, start: null, end: null }],
 };
 
 const eventsSlice = createSlice({
   name: 'events',
   initialState: initialEventsState,
   reducers: {
-    setEventDateAndTime(state, action) {
-      state.events.schedule = {
-        start: action.payload.start,
-        end: action.payload.end,
-      };
+    setStartDate(state, action) {
+      state.events.start = action.payload;
+      console.log(state.events);
+    },
+    setEndDate(state, action) {
+      state.events.end = action.payload;
+      console.log(state.events);
     },
   },
 });
 
 export default eventsSlice.reducer;
-export const { setEventDateAndTime } = eventsSlice.actions;
+export const { setStartDate, setEndDate } = eventsSlice.actions;
