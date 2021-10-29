@@ -23,7 +23,7 @@ export default function EventsPage() {
             activeEvent && 'hidden lg:flex'
           }`}
         >
-          <ul className='flex flex-col space-y-10'>
+          <ul className='flex flex-col space-y-10 items-center w-screen'>
             {events.map((event, index) => (
               <Link key={event.id} to={`/events/${event.id}`}>
                 <EventItem event={event} onClick={() => setActiveEvent(true)} />

@@ -44,52 +44,23 @@ export default function EventInfo(props) {
         onClick={() => props.setActiveEvent(false)}
         className='inline-block lg:hidden'
       >
-        Back to events
+        {`< Back to events`}
       </Link>
-      {/* <table className='border-separate'>
-        <tbody>
-          <tr>
-            <th className='mr-10'>Name</th>
-            <td>{event.name}</td>
-          </tr>
-          <tr>
-            <th className='mr-10'>Description</th>
-            <td>{event.desc}</td>
-          </tr>
-          <tr>
-            <th className='mr-10'>Starts</th>
-            <td>{handleTime(event.start)}</td>
-          </tr>
-          <tr>
-            <th className='mr-10'>Name</th>
-            <td>{event.name}</td>
-          </tr>
-          <tr>
-            <th className='mr-10'>Creator</th>
-            <td>{event.creator}</td>
-          </tr>
-        </tbody>
-      </table> */}
-      <div>
-        <div className='flex flex-row justify-center'>
-          <p className='w-1/3'>Name:</p>
-          <p className='w-2/3'>{event.name}</p>
+
+      <div className='flex flex-row justify-around'>
+        <div id='left'>
+          <p>Name:</p>
+          <p>Description:</p>
+          <p>Starts:</p>
+          <p>Ends:</p>
+          <p>Creator:</p>
         </div>
-        <div className='flex flex-row justify-center'>
-          <p className='w-1/3'>Description:</p>
-          <p className='w-2/3'>{event.desc}</p>
-        </div>
-        <div className='flex flex-row justify-center'>
-          <p className='w-1/3'>Starts:</p>
-          <p className='w-2/3'>{handleTime(event.start)}</p>
-        </div>
-        <div className='flex flex-row justify-center'>
-          <p className='w-1/3'>Ends:</p>
-          <p className='w-2/3'>{handleTime(event.ends)}</p>
-        </div>
-        <div className='flex flex-row justify-center'>
-          <p className='w-1/3'>Creator:</p>
-          <p className='w-2/3'>{event.creator}</p>
+        <div id='right'>
+          <p>{event.name}</p>
+          <p>{event.desc}</p>
+          <p>{handleTime(event.start)}</p>
+          <p>{handleTime(event.ends)}</p>
+          <p>{event.creator}</p>
         </div>
       </div>
       <ul>
