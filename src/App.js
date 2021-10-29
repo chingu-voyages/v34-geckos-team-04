@@ -20,7 +20,7 @@ const App = () => {
   const [eventData, setEventData] = useState(events);
 
   return (
-    <div>
+    <div className='h-screen'>
       <Router>
         <UserContext.Provider value={{ userData, setUserData }}>
           <EventsContext.Provider value={{ eventData, setEventData }}>

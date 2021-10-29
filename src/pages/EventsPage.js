@@ -15,16 +15,16 @@ export default function EventsPage() {
   const { eventData: events } = useContext(EventsContext);
 
   return (
-    <div className='flex flex-row justify-around'>
+    <div className='flex flex-row justify-around h-full'>
       <Router>
         {!activeEvent && <Redirect to='/events' />}
         <div
-          className={`event-item-container ${
+          className={`lg:w-1/3 flex justify-center overflow-y-auto ${
             activeEvent && 'hidden lg:flex'
-          } lg:w-1/3 flex justify-center`}
+          }`}
         >
-          <ul className='flex flex-col space-y-8 justify-center min-h-screen'>
-            {events.map((event) => (
+          <ul className='flex flex-col space-y-10'>
+            {events.map((event, index) => (
               <Link key={event.id} to={`/events/${event.id}`}>
                 <EventItem event={event} onClick={() => setActiveEvent(true)} />
               </Link>
@@ -32,9 +32,9 @@ export default function EventsPage() {
           </ul>
         </div>
         <div
-          className={`event-info-container ${
+          className={`w-screen lg:w-2/3 flex flex-col bg-gray-50 border-l overflow-y-auto ${
             !activeEvent && 'hidden lg:flex'
-          } w-screen lg:w-2/3 min-h-screen flex flex-col justify-center bg-gray-50 border-l`}
+          }`}
         >
           <Switch>
             <Route path={`/events/:eventId`}>
