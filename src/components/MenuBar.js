@@ -1,7 +1,9 @@
 import React from 'react';
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect, useLayoutEffect, useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
+
 import { Icon } from '@iconify/react';
-import profilePic from '../assets/profile-pic-dummy.jpg';
+//import profilePic from '../assets/profile-pic-dummy.jpg';
 
 const menu = [
   { name: 'Home', icon: 'fa-solid:home' },
@@ -10,6 +12,7 @@ const menu = [
 ];
 
 const MenuBar = () => {
+  const { userData } = useContext(UserContext);
   const [largeScreen, setLargeScreen] = useState(false);
 
   const setNewWidth = () => {
@@ -60,13 +63,13 @@ const MenuBar = () => {
         <React.Fragment>
           <div className='flex items-center'>
             <img
-              src={profilePic}
+              src={userData.imageUrl}
               alt='Profile Picture'
               className='h-12 w-12 m-2'
             />
             <div>
-              <div>Username</div>
-              <div>email@gmail.com</div>
+              <div>{userData.name}</div>
+              <div>{userData.email}</div>
             </div>
           </div>
           <button className='bg-red-600 rounded text-white'>SIGN OUT</button>

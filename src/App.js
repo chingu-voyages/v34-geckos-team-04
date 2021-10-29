@@ -4,7 +4,7 @@ import LoginPage from './pages/LoginPage';
 import { UserContext } from './contexts/UserContext';
 import MenuBar from './components/MenuBar';
 import Header from './components/Header';
-import profilePic from './assets/profile-pic-dummy.jpg';
+//import profilePic from './assets/profile-pic-dummy.jpg';
 
 const App = () => {
   // Passed to UserContext.Provider to set and share user data
@@ -24,10 +24,16 @@ const App = () => {
           <Route exact path='/'>
             {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
           </Route>
+          <Route path='/events'>
+            <Header
+              title='Breakfast'
+              link={userData.imageUrl}
+              returnBtn={true}
+            />
+            <MenuBar />
+          </Route>
         </UserContext.Provider>
       </Router>
-      {/* <Header title='Breakfast' link={profilePic} returnBtn={true} />
-      <MenuBar /> */}
     </div>
   );
 };
