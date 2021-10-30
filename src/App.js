@@ -6,6 +6,7 @@ import { EventsContext } from './contexts/EventsContext';
 import EventsPage from './pages/EventsPage';
 import events from './utils/eventData';
 import eventsReducer from './utils/eventsReducer';
+import PrivateRoute from './components/shared/PrivateRoute';
 
 const App = () => {
   // Passed to UserContext.Provider to set and share user data
@@ -58,9 +59,9 @@ const App = () => {
             <Route exact path='/'>
               {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
             </Route>
-            <Route path='/events'>
+            <PrivateRoute path='/events'>
               <EventsPage />
-            </Route>
+            </PrivateRoute>
           </EventsContext.Provider>
         </UserContext.Provider>
       </Router>
