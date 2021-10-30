@@ -9,6 +9,7 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
+import ToDoList from '../components/ToDoList.js';
 
 export default function EventsPage() {
   const [activeEvent, setActiveEvent] = useState(false);
@@ -37,9 +38,12 @@ export default function EventsPage() {
           }`}
         >
           <Switch>
-            <Route path={`/events/:eventId`}>
+            <Route path={`/events/:eventId`} exact>
               {/* setActiveEvent prop is temporary until menu/header merged */}
               <EventInfo setActiveEvent={setActiveEvent} />
+            </Route>
+            <Route path='/events/:eventId/todos'>
+              <ToDoList />
             </Route>
             <Route path='*'>
               <p>Select an event to view</p>

@@ -2,11 +2,12 @@ import ToDoItem from './ToDoItem';
 import { useContext } from 'react';
 import handleTime from '../utils/handleTime';
 import { EventsContext } from '../contexts/EventsContext';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useRouteMatch } from 'react-router-dom';
 
 export default function EventInfo(props) {
   const { eventId } = useParams();
   const { eventData } = useContext(EventsContext);
+  const { url } = useRouteMatch();
   const event = eventData.find((e) => e.id === eventId);
 
   if (event === undefined) {
@@ -47,6 +48,9 @@ export default function EventInfo(props) {
         {todos.map((todo, index) => (
           <ToDoItem key={index} eventId={eventId} todo={todo} prio='hidden' />
         ))}
+        <li>
+          <Link to={`${url}/todos`}>Todos List</Link>
+        </li>
       </ul>
     </li>
   );
