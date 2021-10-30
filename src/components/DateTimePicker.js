@@ -1,25 +1,19 @@
-import React from 'react';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useContext } from 'react';
+import { EventsContext } from '../contexts/EventsContext';
 
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDateTimePicker from '@mui/lab/DesktopDateTimePicker';
 import TextField from '@mui/material/TextField';
 
-import { setStartDate, setEndDate } from '../store/events-slice';
-
 const DateTimePicker = ({ minDateTime, setting }) => {
-  const dispatch = useDispatch();
   const [date, setDate] = useState(new Date());
+  const { eventData, setEventData } = useContext(EventsContext);
 
   const changeDateHandler = (newDate) => {
     setDate(newDate);
-    if (setting === 'start') {
-      dispatch(setStartDate(newDate));
-    } else if (setting === 'end') {
-      dispatch(setEndDate(newDate));
-    }
+    //store in context: event.start or event.end
+    setEventData({ ...eventData, [setting]: newDate });
   };
 
   return (

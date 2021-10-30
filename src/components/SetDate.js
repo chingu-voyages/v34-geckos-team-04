@@ -1,26 +1,22 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useContext } from 'react';
+import { EventsContext } from '../contexts/EventsContext';
 import DateTimePicker from './DateTimePicker';
 
 const SetDate = () => {
-  //   const [startDateAndTime, setStartDateAndTime] = useState(new Date());
-  //   const [endDateAndTime, setEndDateAndTime] = useState(new Date());
-
-  const { events } = useSelector((state) => state.events);
-  console.log(events);
-  const selectedEvent = events.find((event) => event.id === 1);
-  console.log(selectedEvent);
+  const { eventId } = useParams();
+  const { eventData } = useContext(EventsContext);
+  const event = eventData.find((e) => e.id === eventId);
 
   return (
     <div>
       <h3>Set Date</h3>
       <div>
         <p>Starts</p>
-        <DateTimePicker minDateTime={new Date()} />
+        <DateTimePicker minDateTime={new Date()} setting='start' />
       </div>
       <div>
         <p>Ends</p>
-        <DateTimePicker minDateTime={selectedEvent.start} />
+        <DateTimePicker minDateTime={event.start} setting='end' />
       </div>
     </div>
   );
