@@ -3,6 +3,7 @@ import { useState, useEffect, useLayoutEffect, useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 
 import { Icon } from '@iconify/react';
+import SignoutButton from './shared/SignoutButton';
 //import profilePic from '../assets/profile-pic-dummy.jpg';
 
 const menu = [
@@ -72,7 +73,7 @@ const MenuBar = () => {
               <div>{userData.email}</div>
             </div>
           </div>
-          <button className='bg-red-600 rounded text-white'>SIGN OUT</button>
+          <SignoutButton />
         </React.Fragment>
       )}
     </nav>

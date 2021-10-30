@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { UserContext } from '../contexts/UserContext';
+import SignoutButton from './shared/SignoutButton';
 
 const Header = (props) => {
   const { userData } = useContext(UserContext);
@@ -29,9 +30,7 @@ const Header = (props) => {
         <div className='bg-gray-400 absolute top-16 right-1 w-60 shadow-md rounded p-2'>
           <div className='font-bold'>{userData.name}</div>
           <div>{userData.email}</div>
-          <button className='bg-red-600 rounded text-white mt-5 px-2'>
-            SIGN OUT
-          </button>
+          <SignoutButton />
         </div>
       )}
     </header>
