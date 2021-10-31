@@ -49,6 +49,29 @@ export default function EventSubMenu() {
     return () => window.removeEventListener('resize', setNewWidth);
   }, [setNewWidth]);
 
+  function handleIconClick(iconClicked) {
+    let iconName;
+    if (iconClicked.target.tagName === 'svg') {
+      iconName = iconClicked.target.parentElement.attributes.name.value;
+    } else if (iconClicked.target.tagName === 'path') {
+      iconName =
+        iconClicked.target.parentElement.parentElement.attributes.name.value;
+    }
+    console.log(iconClicked.target);
+    if (iconName === 'Share') {
+      handleShareClick();
+    } else if (iconName === 'Edit') {
+      handleEditClick();
+    }
+  }
+  function handleShareClick() {
+    alert('Share Event Link');
+  }
+
+  function handleEditClick() {
+    alert('Edit Event');
+  }
+
   const icon = eventSubMenu.map((icon) => {
     return (
       <li key={icon.name} name={icon.name} className='lg:flex lg:items-center'>
@@ -57,7 +80,13 @@ export default function EventSubMenu() {
             <Icon icon={icon.icon} color='#F0D2AC' width={36} height={36} />
           </NavLink>
         ) : (
-          <Icon icon={icon.icon} color='#F0D2AC' width={36} height={36} />
+          <Icon
+            icon={icon.icon}
+            color='#F0D2AC'
+            width={36}
+            height={36}
+            onClick={handleIconClick}
+          />
         )}
       </li>
     );
