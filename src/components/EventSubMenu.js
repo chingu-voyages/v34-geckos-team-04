@@ -36,13 +36,13 @@ export default function EventSubMenu() {
       iconName =
         iconClicked.target.parentElement.parentElement.attributes.name.value;
     }
-
     if (iconName === 'Share') {
       handleShareClick();
     } else if (iconName === 'Edit') {
       handleEditClick();
     }
   }
+
   function handleShareClick() {
     alert('Share Event Link');
   }
