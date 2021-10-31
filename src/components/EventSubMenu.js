@@ -28,27 +28,6 @@ const eventSubMenu = [
   },
 ];
 export default function EventSubMenu() {
-  const [largeScreen, setLargeScreen] = useState(false);
-
-  const setNewWidth = () => {
-    if (window.innerWidth >= 1023) {
-      setLargeScreen(true);
-    } else {
-      setLargeScreen(false);
-    }
-  };
-
-  //initial rendering
-  useEffect(() => {
-    setNewWidth();
-  }, []);
-
-  //detecting size change
-  useLayoutEffect(() => {
-    window.addEventListener('resize', setNewWidth);
-    return () => window.removeEventListener('resize', setNewWidth);
-  }, [setNewWidth]);
-
   function handleIconClick(iconClicked) {
     let iconName;
     if (iconClicked.target.tagName === 'svg') {
