@@ -36,7 +36,7 @@ export default function EventSubMenu() {
       iconName =
         iconClicked.target.parentElement.parentElement.attributes.name.value;
     }
-    console.log(iconClicked.target);
+
     if (iconName === 'Share') {
       handleShareClick();
     } else if (iconName === 'Edit') {
