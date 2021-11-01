@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useParams } from 'react-router';
 import { EventsContext } from '../contexts/EventsContext';
 import DateTimePicker from './DateTimePicker';
 
