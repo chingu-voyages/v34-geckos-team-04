@@ -18,8 +18,7 @@ export default function EventInfo(props) {
   const todos = event.todos;
 
   return (
-    <div>
-
+    <div className='mb-20 lg:mt-20 lg:mb-0'>
       <li className='list-none'>
         {/* Link is temporary until menu/header merged */}
         {/* It adds ability to go back to events page on mobile screens */}
