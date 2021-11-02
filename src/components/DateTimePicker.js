@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { EventsContext } from '../contexts/EventsContext';
-
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDateTimePicker from '@mui/lab/DesktopDateTimePicker';
@@ -12,7 +11,7 @@ const DateTimePicker = ({ minDateTime, setting }) => {
 
   const changeDateHandler = (newDate) => {
     setDate(newDate);
-    //store in context: event.start or event.end
+    //update event.start or event.end for the selected event
     setEventData({ ...eventData, [setting]: newDate });
   };
 

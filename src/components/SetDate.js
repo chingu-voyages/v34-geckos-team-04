@@ -4,6 +4,7 @@ import { EventsContext } from '../contexts/EventsContext';
 import DateTimePicker from './DateTimePicker';
 
 const SetDate = () => {
+  //select event from the eventData with an ID that matches params
   const { eventId } = useParams();
   const { eventData } = useContext(EventsContext);
   const event = eventData.find((e) => e.id === eventId);
@@ -17,7 +18,10 @@ const SetDate = () => {
       </div>
       <div>
         <p>Ends</p>
-        <DateTimePicker minDateTime={event.start} setting='end' />
+        <DateTimePicker
+          minDateTime={event.start ? event.start : new Date()}
+          setting='end'
+        />
       </div>
     </div>
   );
