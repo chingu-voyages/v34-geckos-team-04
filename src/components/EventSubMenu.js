@@ -28,16 +28,9 @@ const eventSubMenu = [
 ];
 export default function EventSubMenu() {
   function handleIconClick(iconClicked) {
-    let iconName;
-    if (iconClicked.target.tagName === 'svg') {
-      iconName = iconClicked.target.parentElement.attributes.name.value;
-    } else if (iconClicked.target.tagName === 'path') {
-      iconName =
-        iconClicked.target.parentElement.parentElement.attributes.name.value;
-    }
-    if (iconName === 'Share') {
+    if (iconClicked === 'Share') {
       handleShareClick();
-    } else if (iconName === 'Edit') {
+    } else if (iconClicked === 'Edit') {
       handleEditClick();
     }
   }
@@ -52,7 +45,7 @@ export default function EventSubMenu() {
 
   const icon = eventSubMenu.map((icon) => {
     return (
-      <li key={icon.name} name={icon.name} className='lg:flex lg:items-center'>
+      <li key={icon.name} className='lg:flex lg:items-center'>
         {icon.isNavLink ? (
           <NavLink to={icon.path}>
             <Icon icon={icon.icon} color='#F0D2AC' width={36} height={36} />
@@ -63,7 +56,7 @@ export default function EventSubMenu() {
             color='#F0D2AC'
             width={36}
             height={36}
-            onClick={handleIconClick}
+            onClick={() => handleIconClick(icon.name)}
           />
         )}
       </li>
