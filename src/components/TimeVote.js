@@ -1,9 +1,15 @@
 import TimeSelector from './TimeSelector';
+import VoteResult from './VoteResult';
 
 const TimeVote = () => {
 
     return (
-        <TimeSelector />
+        <div>
+            {/* if user already select their available time */}
+            <VoteResult />
+            {/* if not */}
+            <TimeSelector />
+        </div>
     )
 }
 
