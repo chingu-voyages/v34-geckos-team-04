@@ -68,12 +68,6 @@ const App = () => {
                 {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
               </Route>
               <React.Fragment>
-                <Header
-                  title='Breakfast'
-                  link={userData.imageUrl}
-                  returnBtn={true}
-                />
-                <MenuBar />
                 <PrivateRoute path='/events'>
                   <EventsPage />
                 </PrivateRoute>
