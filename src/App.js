@@ -1,5 +1,10 @@
 import React, { useState, useReducer, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import { UserContext } from './contexts/UserContext';
 import { EventsContext } from './contexts/EventsContext';
@@ -58,20 +63,22 @@ const App = () => {
       <Router>
         <UserContext.Provider value={{ userData, setUserData }}>
           <EventsContext.Provider value={{ eventData, dispatch }}>
-            <Route exact path='/'>
-              {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
-            </Route>
-            <React.Fragment>
-              <Header
-                title='Breakfast'
-                link={userData.imageUrl}
-                returnBtn={true}
-              />
-              <MenuBar />
-              <PrivateRoute path='/events'>
-                <EventsPage />
-              </PrivateRoute>
-            </React.Fragment>
+            <Switch>
+              <Route exact path='/'>
+                {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
+              </Route>
+              <React.Fragment>
+                <Header
+                  title='Breakfast'
+                  link={userData.imageUrl}
+                  returnBtn={true}
+                />
+                <MenuBar />
+                <PrivateRoute path='/events'>
+                  <EventsPage />
+                </PrivateRoute>
+              </React.Fragment>
+            </Switch>
           </EventsContext.Provider>
         </UserContext.Provider>
       </Router>
