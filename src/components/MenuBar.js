@@ -4,7 +4,7 @@ import { UserContext } from '../contexts/UserContext';
 
 import { Icon } from '@iconify/react';
 import SignoutButton from './shared/SignoutButton';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 //import profilePic from '../assets/profile-pic-dummy.jpg';
 
 const menu = [
@@ -17,6 +17,7 @@ const MenuBar = () => {
   const { userData } = useContext(UserContext);
   const [largeScreen, setLargeScreen] = useState(false);
   const history = useHistory();
+  const { url } = useRouteMatch();
 
   const setNewWidth = () => {
     if (window.innerWidth >= 1023) {
@@ -33,7 +34,9 @@ const MenuBar = () => {
 
   const handleIconClick = (iconClicked) => {
     if (iconClicked === 'New Event') {
-      history.push('/events/new');
+      history.push(`${url}/new`);
+    } else if (iconClicked === 'Home') {
+      history.push(`/events`);
     }
   };
 
@@ -43,7 +46,7 @@ const MenuBar = () => {
     return () => window.removeEventListener('resize', setNewWidth);
   }, [setNewWidth]);
 
-  const icon = menu.map((icon) => {
+  const icon = menu.map((icon, index) => {
     return (
       <li
         key={icon.name}
