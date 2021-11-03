@@ -16,7 +16,7 @@ export default function EventsPage() {
   const { eventData: events } = useContext(EventsContext);
 
   return (
-    <div className='flex flex-row justify-around h-full'>
+    <div className='flex flex-row justify-around h-full lg:ml-56'>
       <Router>
         {!activeEvent && <Redirect to='/events' />}
         <div
