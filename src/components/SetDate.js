@@ -14,13 +14,18 @@ const SetDate = () => {
       <h3>Set Date</h3>
       <div>
         <p>Starts</p>
-        <DateTimePicker minDateTime={new Date()} setting='start' />
+        <DateTimePicker
+          minDateTime={new Date()}
+          setting='start'
+          eventId={eventId}
+        />
       </div>
       <div>
         <p>Ends</p>
         <DateTimePicker
           minDateTime={event.start ? event.start : new Date()}
           setting='end'
+          eventId={eventId}
         />
       </div>
     </div>
@@ -28,3 +33,9 @@ const SetDate = () => {
 };
 
 export default SetDate;
+
+// COPY AND PASTE BELOW TO REDUCER
+// case: 'setNewDate':
+// const event = state.find((e) =>e.id === action.eventId);
+// const {newDate} = action;
+// return state.map((e) => action.eventId === e.id ? { ...e, [action.setting]: newDate } : e  );
