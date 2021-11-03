@@ -4,6 +4,10 @@ export default function handleTime(eventStart, eventEnd = null) {
   let start = moment(eventStart);
   let end;
 
+  if (eventStart === null && eventEnd === null) {
+    return null;
+  }
+
   if (eventEnd) {
     end = moment(eventEnd);
     // if event starts and ends on the same day
