@@ -18,6 +18,7 @@ const MenuBar = (props) => {
   const [largeScreen, setLargeScreen] = useState(false);
   const history = useHistory();
   const { url } = useRouteMatch();
+  console.log('urlinMenu', url);
 
   const setNewWidth = () => {
     if (window.innerWidth >= 1023) {
@@ -37,6 +38,7 @@ const MenuBar = (props) => {
       props.setActiveEvent(true);
       history.push(`${url}/new`);
     } else if (iconClicked === 'Home') {
+      props.setActiveEvent(false);
       history.push(`/events`);
     }
   };
