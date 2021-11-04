@@ -13,7 +13,7 @@ const menu = [
   { name: 'Google Calendar', icon: 'fa-solid:calendar-alt' },
 ];
 
-const MenuBar = () => {
+const MenuBar = (props) => {
   const { userData } = useContext(UserContext);
   const [largeScreen, setLargeScreen] = useState(false);
   const history = useHistory();
@@ -34,6 +34,7 @@ const MenuBar = () => {
 
   const handleIconClick = (iconClicked) => {
     if (iconClicked === 'New Event') {
+      props.setActiveEvent(true);
       history.push(`${url}/new`);
     } else if (iconClicked === 'Home') {
       history.push(`/events`);
