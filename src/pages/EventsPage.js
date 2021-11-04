@@ -2,7 +2,6 @@ import EventItem from '../components/EventItem.js';
 import EventInfo from '../components/EventInfo.js';
 import React, { useState, useContext } from 'react';
 import { EventsContext } from '../contexts/EventsContext.js';
-
 import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
 import ToDoList from '../components/ToDoList.js';
 import Header from '../components/Header.js';
