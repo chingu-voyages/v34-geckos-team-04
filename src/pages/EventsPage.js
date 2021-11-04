@@ -3,14 +3,7 @@ import EventInfo from '../components/EventInfo.js';
 import React, { useState, useContext } from 'react';
 import { EventsContext } from '../contexts/EventsContext.js';
 
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-  Redirect,
-  useRouteMatch,
-} from 'react-router-dom';
+import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
 import ToDoList from '../components/ToDoList.js';
 import Header from '../components/Header.js';
 import MenuBar from '../components/MenuBar.js';
@@ -26,7 +19,7 @@ export default function EventsPage() {
   return (
     <React.Fragment>
       <Header title='Breakfast' link={userData.imageUrl} returnBtn={true} />
-      <MenuBar />
+      <MenuBar setActiveEvent={setActiveEvent} />
       <div className='flex flex-row justify-around h-full lg:ml-56'>
         {!activeEvent && <Redirect to='/events' />}
         <div

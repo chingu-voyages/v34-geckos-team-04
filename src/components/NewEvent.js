@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { EventsContext } from '../contexts/EventsContext';
 import { UserContext } from '../contexts/UserContext';
+import { Icon } from '@iconify/react';
 
 const NewEvent = () => {
   const { userData } = useContext(UserContext);
@@ -8,6 +9,8 @@ const NewEvent = () => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
 
+  // dispatches a new event to reducer
+  // resets form state to default
   const handleForm = (e) => {
     e.preventDefault();
     dispatch({
@@ -21,27 +24,31 @@ const NewEvent = () => {
   };
 
   return (
-    <div className='flex flex-col'>
-      <form className='flex flex-row justify-around'>
-        <div id='left' className='flex flex-col'>
-          <label htmlFor='name'>Name:</label>
-          <label htmlFor='description'>Description:</label>
-        </div>
-        <div id='right' className='flex flex-col'>
+    <div className='h-full mb-20 flex justify-center'>
+      <form className='h-full w-80 flex flex-col justify-center items-center space-y-4'>
+        <div className='flex items-center'>
+          <label htmlFor='name' className='w-24'>
+            Name:
+          </label>
           <input
             type='text'
             id='name'
-            className='form-input'
+            className='form-input rounded-full'
             autoComplete='off'
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder='Enter an event name'
             required
           />
+        </div>
+        <div className='flex items-center'>
+          <label htmlFor='description' className='w-24'>
+            Description:
+          </label>
           <input
             type='text'
             id='description'
-            className='form-input'
+            className='form-input rounded-full'
             autoComplete='off'
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
@@ -49,12 +56,16 @@ const NewEvent = () => {
             required
           />
         </div>
-        <input
-          type='submit'
-          value='Create event'
+        <button
           onClick={handleForm}
           disabled={(name === '' || desc === '') && true}
-        />
+          className='self-end'
+        >
+          <Icon
+            icon='fluent:checkmark-12-filled'
+            className='w-12 h-12 text-green-500'
+          />
+        </button>
       </form>
     </div>
   );
