@@ -13,6 +13,14 @@ const eventsReducer = (state, action) => {
       return state.map((e) =>
         action.eventId === e.id ? { ...e, todos: updatedTodos } : e
       );
+    case 'deleteTodo':
+      const todoArray = state.find((e) => e.id === action.eventId).todos;
+      const deletedTodos = todoArray.filter(
+        (todo) => todo.id !== action.todoId
+      );
+      return state.map((e) =>
+        action.eventId === e.id ? { ...e, todos: deletedTodos } : e
+      );
     default:
       return state;
   }

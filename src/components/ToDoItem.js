@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { EventsContext } from '../contexts/EventsContext';
+import { Icon } from '@iconify/react';
 
 const ToDoItem = (props) => {
   const { todo, eventId } = props;
@@ -32,6 +33,13 @@ const ToDoItem = (props) => {
         <p className=''>{todo.name}</p>
         <p className=''>{todo.assignees}</p>
       </label>
+      <Icon
+        icon='entypo:cross'
+        className={`ml-4 w-10 h-10 ${props.prio === 'hidden' && 'hidden'}`}
+        onClick={() =>
+          dispatch({ type: 'deleteTodo', eventId, todoId: todo.id })
+        }
+      />
     </li>
   );
 };
