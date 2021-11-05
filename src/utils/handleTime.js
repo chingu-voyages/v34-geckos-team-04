@@ -4,7 +4,7 @@ export default function handleTime(eventStart, eventEnd = null) {
   let start = moment(eventStart);
   let end;
 
-  if (eventStart === null && eventEnd === null) {
+  if (!eventStart && !eventEnd) {
     return null;
   }
 
