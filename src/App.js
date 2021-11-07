@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Switch } from 'react-router';
 import LoginPage from './pages/LoginPage';
+import TimeVote from './components/TimeVote';
 import { UserContext } from './contexts/UserContext';
 import MenuBar from './components/MenuBar';
 import Header from './components/Header';
