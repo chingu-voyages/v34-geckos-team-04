@@ -10,6 +10,9 @@ export default function EventInfo(props) {
   const { eventData } = useContext(EventsContext);
   const { url } = useRouteMatch();
   const event = eventData.find((e) => e.id === eventId);
+  console.log('event:', event);
+  console.log(handleTime(event.start));
+  console.log(handleTime(event.ends));
 
   if (event === undefined) {
     return <p>Event doesn't exist!</p>;
@@ -34,15 +37,15 @@ export default function EventInfo(props) {
           <div id='left'>
             <p>Name:</p>
             <p>Description:</p>
-            <p>Starts:</p>
-            <p>Ends:</p>
+            {event.start && <p>Starts:</p>}
+            {event.end && <p>Ends:</p>}
             <p>Creator:</p>
           </div>
           <div id='right'>
             <p>{event.name}</p>
             <p>{event.desc}</p>
-            <p>{handleTime(event.start)}</p>
-            <p>{handleTime(event.ends)}</p>
+            {event.start && <p>{handleTime(event.start)}</p>}
+            {event.end && <p>{handleTime(event.end)}</p>}
             <p>{event.creator}</p>
           </div>
         </div>

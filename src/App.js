@@ -12,8 +12,6 @@ import EventsPage from './pages/EventsPage';
 import events from './utils/eventData';
 import eventsReducer from './utils/eventsReducer';
 import PrivateRoute from './components/shared/PrivateRoute';
-import MenuBar from './components/MenuBar';
-import Header from './components/Header';
 
 const App = () => {
   // Passed to UserContext.Provider to set and share user data
@@ -68,12 +66,6 @@ const App = () => {
                 {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
               </Route>
               <React.Fragment>
-                <Header
-                  title='Breakfast'
-                  link={userData.imageUrl}
-                  returnBtn={true}
-                />
-                <MenuBar />
                 <PrivateRoute path='/events'>
                   <EventsPage />
                 </PrivateRoute>
