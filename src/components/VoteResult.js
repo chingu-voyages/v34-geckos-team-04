@@ -1,18 +1,18 @@
 import React from "react";
+import { EventsContext } from '../contexts/EventsContext';
 import ScheduleSelector from 'react-schedule-selector'
 
-class VoteResult extends React.Component {
-
-    state = { schedule : [] }
+const VoteResult = (props) => {
+    const { eventId } = props;
+    const { eventData } = useContext(EventsContext);
+    const schedule = eventData.find((e) => e.id === eventId).schedule
   
-    render() {
-      return (
-        <ScheduleSelector
-            // showing selected time from all users
-          selection={this.state.schedule}
-        />
-      )
-    }
+    return (
+    <ScheduleSelector
+        // showing selected time from all users
+        selection={schedule}
+    />
+    )
   }
   
   export default VoteResult

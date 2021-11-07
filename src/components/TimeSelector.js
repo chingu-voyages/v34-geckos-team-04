@@ -1,27 +1,36 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { EventsContext } from '../contexts/EventsContext';
 import ScheduleSelector from 'react-schedule-selector'
 
-class TimeSelector extends React.Component {
+const TimeSelector = (props) => {
+  const { userName, eventId } = props;
+  const { dispatch } = useContext(EventsContext);
+  const [schedule, setSchedule] = useState([])
 
-  state = { schedule : [] }
-
-  handleChange = newSchedule => {
-    this.setState({ schedule: newSchedule })
-    console.log(this.state.schedule)
+  const handleChange = newSchedule => {
+    setSchedule(newSchedule)
   }
 
-  render() {
+  const submitTime = () => {
+    dispatch({ type: 'addSchedule', eventId, userName })
+  }
+
     return (
-      <ScheduleSelector
-        selection={this.state.schedule}
+      <div>
+        <ScheduleSelector
+        selection={schedule}
         numDays={5}
         minTime={8}
         maxTime={22}
         hourlyChunks={2}
-        onChange={this.handleChange}
+        onChange={handleChange}
       />
+
+        <button onClick={submitTime}>
+          submit
+        </button>
+      </div>
     )
-  }
 }
 
 export default TimeSelector
