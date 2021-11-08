@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+
 const eventsReducer = (state, action) => {
   switch (action.type) {
     case 'toggleTodo':
@@ -36,6 +37,18 @@ const eventsReducer = (state, action) => {
       return state.map((e) =>
         e.id === action.eventId ? { ...e, todos: addTodos } : e
       );
+    case 'addNewEvent':
+      const newEvent = {
+        id: uuidv4(),
+        name: action.name,
+        desc: action.desc,
+        start: null,
+        end: null,
+        creator: action.creator,
+        todos: [],
+      };
+
+      return [...state, newEvent];
     default:
       return state;
   }
