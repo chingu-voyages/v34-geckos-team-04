@@ -25,8 +25,12 @@ const eventsReducer = (state, action) => {
         creator: action.creator,
         todos: [],
       };
-
       return [...state, newEvent];
+    case 'setNewDate':
+      const { newDate } = action;
+      return state.map((e) =>
+        action.eventId === e.id ? { ...e, [action.setting]: newDate } : e
+      );
     default:
       return state;
   }

@@ -1,5 +1,11 @@
 import React from 'react';
-import { useState, useEffect, useLayoutEffect, useContext } from 'react';
+import {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useContext,
+  useCallback,
+} from 'react';
 import { UserContext } from '../contexts/UserContext';
 
 import { Icon } from '@iconify/react';
@@ -20,18 +26,18 @@ const MenuBar = (props) => {
   const { url } = useRouteMatch();
   console.log('urlinMenu', url);
 
-  const setNewWidth = () => {
+  const setNewWidth = useCallback(() => {
     if (window.innerWidth >= 1023) {
       setLargeScreen(true);
     } else {
       setLargeScreen(false);
     }
-  };
+  }, []);
 
   //initial rendering
   useEffect(() => {
     setNewWidth();
-  }, []);
+  }, [setNewWidth]);
 
   const handleIconClick = (iconClicked) => {
     if (iconClicked === 'New Event') {
@@ -80,7 +86,7 @@ const MenuBar = (props) => {
           <div className='flex items-center'>
             <img
               src={userData.imageUrl}
-              alt='Profile Picture'
+              alt='Profile'
               className='h-12 w-12 m-2'
             />
             <div>
