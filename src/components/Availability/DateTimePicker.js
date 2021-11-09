@@ -5,13 +5,12 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDateTimePicker from '@mui/lab/DesktopDateTimePicker';
 import TextField from '@mui/material/TextField';
 
-const DateTimePicker = ({ minDateTime, setting, eventId }) => {
+const DateTimePicker = ({ minDateTime, setting, eventId, eventDate }) => {
   const { dispatch } = useContext(EventsContext);
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(eventDate);
 
   const changeDateHandler = (newDate) => {
     setDate(newDate);
-    //update event.start or event.end for the selected event
     dispatch({ type: 'setNewDate', eventId, newDate, setting });
   };
 

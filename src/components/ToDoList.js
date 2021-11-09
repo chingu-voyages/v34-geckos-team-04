@@ -7,6 +7,7 @@ const ToDoList = (props) => {
   const { eventId } = useParams();
   const { eventData } = useContext(EventsContext);
   const todos = eventData.find((e) => e.id === eventId).todos;
+  console.log(todos);
 
   return (
     <React.Fragment>
