@@ -48,6 +48,33 @@ const eventsReducer = (state, action) => {
 
       return [...state, newEvent];
 
+    case 'changeTaskName':
+      const nameChangedTodos = todos.map((todo) =>
+        todo.id === action.todo.id ? action.todo : todo
+      );
+
+      return state.map((e) =>
+        e.id === action.eventId ? { ...e, todos: nameChangedTodos } : e
+      );
+
+    case 'changeAssigneeName':
+      const assigneeChangedTodos = todos.map((todo) =>
+        todo.id === action.todo.id ? action.todo : todo
+      );
+
+      return state.map((e) =>
+        e.id === action.eventId ? { ...e, todos: assigneeChangedTodos } : e
+      );
+
+    case 'changePrio':
+      const changedPrioTodos = todos.map((todo) =>
+        todo.id === action.todo.id ? action.todo : todo
+      );
+
+      return state.map((e) =>
+        e.id === action.eventId ? { ...e, todos: changedPrioTodos } : e
+      );
+
     default:
       return state;
   }
