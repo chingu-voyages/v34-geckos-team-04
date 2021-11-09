@@ -8,6 +8,7 @@ import Header from '../components/Header.js';
 import MenuBar from '../components/MenuBar.js';
 import { UserContext } from '../contexts/UserContext.js';
 import NewEvent from '../components/NewEvent.js';
+import AvailabilityCheck from '../components/Availability/AvailabilityCheck'
 
 export default function EventsPage() {
   const [activeEvent, setActiveEvent] = useState(false);
@@ -49,6 +50,9 @@ export default function EventsPage() {
             </Route>
             <Route path='/events/:eventId/todos'>
               <ToDoList />
+            </Route>
+            <Route path='/events/:eventId/availability'>
+              <AvailabilityCheck />
             </Route>
             <Route path='*'>
               <p>Select an event to view</p>

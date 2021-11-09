@@ -22,7 +22,7 @@ const Header = (props) => {
       <h2 className='text-2xl'>{props.title}</h2>
       <img
         src={props.link}
-        alt='Profile Picture'
+        alt='Profile'
         className='h-10 w-10 relative'
         onClick={showUserInfoHandler}
       />

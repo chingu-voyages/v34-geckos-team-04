@@ -7,7 +7,7 @@ const eventSubMenu = [
     name: 'Availability',
     icon: 'fa-solid:user-clock',
     isNavLink: true,
-    path: '/availability',
+    path: '/events/:eventId/availability',
   },
   {
     name: 'Share',
