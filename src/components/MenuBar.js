@@ -4,6 +4,7 @@ import { UserContext } from '../contexts/UserContext';
 
 import { Icon } from '@iconify/react';
 import SignoutButton from './shared/SignoutButton';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 //import profilePic from '../assets/profile-pic-dummy.jpg';
 
 const menu = [
@@ -12,9 +13,12 @@ const menu = [
   { name: 'Google Calendar', icon: 'fa-solid:calendar-alt' },
 ];
 
-const MenuBar = () => {
+const MenuBar = (props) => {
   const { userData } = useContext(UserContext);
   const [largeScreen, setLargeScreen] = useState(false);
+  const history = useHistory();
+  const { url } = useRouteMatch();
+  console.log('urlinMenu', url);
 
   const setNewWidth = () => {
     if (window.innerWidth >= 1023) {
@@ -29,17 +33,28 @@ const MenuBar = () => {
     setNewWidth();
   }, []);
 
+  const handleIconClick = (iconClicked) => {
+    if (iconClicked === 'New Event') {
+      props.setActiveEvent(true);
+      history.push(`${url}/new`);
+    } else if (iconClicked === 'Home') {
+      props.setActiveEvent(false);
+      history.push(`/events`);
+    }
+  };
+
   //detecting size change
   useLayoutEffect(() => {
     window.addEventListener('resize', setNewWidth);
     return () => window.removeEventListener('resize', setNewWidth);
   }, [setNewWidth]);
 
-  const icon = menu.map((icon) => {
+  const icon = menu.map((icon, index) => {
     return (
       <li
         key={icon.name}
         className='lg:flex lg:w-full lg:justify-start lg:items-center lg:my-8'
+        onClick={() => handleIconClick(icon.name)}
       >
         <Icon
           icon={icon.icon}
