@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import React, { useState, useReducer, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import { UserContext } from './contexts/UserContext';
-import MenuBar from './components/MenuBar';
-import Header from './components/Header';
+import { EventsContext } from './contexts/EventsContext';
+import EventsPage from './pages/EventsPage';
+import events from './utils/eventData';
+import eventsReducer from './utils/eventsReducer';
+import PrivateRoute from './components/shared/PrivateRoute';
 
 const App = () => {
   // Passed to UserContext.Provider to set and share user data
@@ -15,6 +23,9 @@ const App = () => {
     imageUrl: null,
   });
   console.log('userData', userData);
+
+  const [eventData, dispatch] = useReducer(eventsReducer, events);
+  console.log('eventData', eventData);
 
   const { gapi } = window;
   useEffect(() => {
@@ -46,20 +57,21 @@ const App = () => {
   }, [gapi, userData]);
 
   return (
-    <div>
+    <div className='h-screen'>
       <Router>
         <UserContext.Provider value={{ userData, setUserData }}>
-          <Route exact path='/'>
-            {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
-          </Route>
-          <Route path='/events'>
-            <Header
-              title='Breakfast'
-              link={userData.imageUrl}
-              returnBtn={true}
-            />
-            <MenuBar />
-          </Route>
+          <EventsContext.Provider value={{ eventData, dispatch }}>
+            <Switch>
+              <Route exact path='/'>
+                {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
+              </Route>
+              <React.Fragment>
+                <PrivateRoute path='/events'>
+                  <EventsPage />
+                </PrivateRoute>
+              </React.Fragment>
+            </Switch>
+          </EventsContext.Provider>
         </UserContext.Provider>
       </Router>
     </div>
