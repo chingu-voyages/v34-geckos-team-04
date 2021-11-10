@@ -24,6 +24,7 @@ const eventsReducer = (state, action) => {
         end: null,
         creator: action.creator,
         todos: [],
+        availability: []
       };
       return [...state, newEvent];
     case 'setNewDate':
