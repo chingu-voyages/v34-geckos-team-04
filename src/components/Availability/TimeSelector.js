@@ -11,8 +11,9 @@ const TimeSelector = (props) => {
     setSchedule(newSchedule);
   };
 
-  const submitTime = () => {
-    dispatch({ type: 'addSchedule', eventId, userName });
+  const submitTime = (e) => {
+    e.preventDefault();
+    dispatch({ type: 'addSchedule', schedule, eventId, userName });
   };
 
   return (
