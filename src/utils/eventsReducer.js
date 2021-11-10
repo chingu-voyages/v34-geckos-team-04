@@ -31,6 +31,14 @@ const eventsReducer = (state, action) => {
       return state.map((e) =>
         action.eventId === e.id ? { ...e, [action.setting]: newDate } : e
       );
+    case 'addSchedule':
+      const availability = state.find((e) => e.id === action.eventId).availability;
+      const newSchedule = {
+        username: action.userName,
+        schedules: action.schedule
+      }
+      availability.push(newSchedule)
+      return state.map((e) => (e.id === action.eventId ? { ...e, availability } : e ))
     default:
       return state;
   }

@@ -8,6 +8,7 @@ const events = [
     start: '2021-10-28T09:00:00',
     end: '2021-10-29T19:00:00',
     creator: 'Emir',
+    availability: [],
     todos: [
       {
         id: uuidv4(),
