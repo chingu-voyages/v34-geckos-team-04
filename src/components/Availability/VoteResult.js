@@ -6,7 +6,9 @@ import { useContext } from 'react';
 const VoteResult = (props) => {
   const { eventId } = props;
   const { eventData } = useContext(EventsContext);
-  const schedule = eventData.find((e) => e.id === eventId).schedule;
+  const availability = eventData.find((e) => e.id === eventId).availability;
+  const schedule = availability.map(a => a.schedules);
+
 
   return (
     <ScheduleSelector
