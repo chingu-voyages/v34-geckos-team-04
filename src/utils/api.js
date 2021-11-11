@@ -54,45 +54,20 @@ export const signInToGoogle = async () => {
   }
 };
 
-export const signOutFromGoogle = () => {
-  try {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      auth2.disconnect();
-    });
-    return true;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const getSignedInUserEmail = async () => {
+export const getSignedInUserInfo = async () => {
   try {
     let status = await checkSignInStatus();
     if (status) {
       var auth2 = gapi.auth2.getAuthInstance();
       var profile = auth2.currentUser.get().getBasicProfile();
-      return profile.getEmail();
+      return {
+        name: profile.getName(),
+        email: profile.getEmail(),
+        imageUrl: profile.getImageUrl(),
+      };
     } else {
       return null;
     }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const publishTheCalendarEvent = (event) => {
-  try {
-    gapi.client.load('calendar', 'v3', () => {
-      var request = gapi.client.calendar.events.insert({
-        calendarId: 'primary',
-        resource: event,
-      });
-
-      request.execute(function (event) {
-        console.log('Event created: ' + event.htmlLink);
-      });
-    });
   } catch (error) {
     console.log(error);
   }
