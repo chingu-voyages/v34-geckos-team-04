@@ -9,30 +9,6 @@ const LoginPage = () => {
   const { setUserData } = useContext(UserContext);
   const [error, setError] = useState(null);
 
-  // const onSuccess = (res) => {
-  //   console.log('Logged in!');
-  //   console.log('response:', res);
-
-  //   const { name, email, imageUrl } = res.profileObj;
-  //   setUserData({ loggedIn: true, name, email, imageUrl });
-  // };
-
-  // const onFailure = (res) => {
-  //   console.error('Login failed!', res);
-  //   setError(res.details);
-  // };
-
-  // // onSuccess and onFailure are required callbacks for login
-  // // if isSignedIn true it will return user data on load, if user gave the app permission
-
-  // const { signIn } = useGoogleLogin({
-  //   onSuccess,
-  //   onFailure,
-  //   clientId: CLIENT_ID,
-  //   isSignedIn: true,
-  //   accessType: 'offline',
-  // });
-
   const getAuthToGoogle = async () => {
     let successful = await signInToGoogle();
     if (successful) {
