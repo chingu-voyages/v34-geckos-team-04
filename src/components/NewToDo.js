@@ -7,7 +7,7 @@ import PrioSelector from './PrioSelector';
 const NewToDo = (props) => {
   const [taskName, setTaskName] = useState('');
   const [assignee, setAssignee] = useState('');
-  const [prioSelector, setPrioSelector] = useState(false);
+  const [prioSelector, setPrioSelector] = useState(true);
   const [prio, setPrio] = useState('');
   const { dispatch } = useContext(EventsContext);
 
