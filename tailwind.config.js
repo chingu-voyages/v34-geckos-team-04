@@ -9,6 +9,12 @@ module.exports = {
         prioMedium: '#F0D2AC',
         prioLow: '#B1D198',
       }),
+      textColor: (theme) => ({
+        ...theme('colors'),
+        prioHigh: '#F19290',
+        prioMedium: '#F0D2AC',
+        prioLow: '#B1D198',
+      }),
     },
   },
   variants: {
