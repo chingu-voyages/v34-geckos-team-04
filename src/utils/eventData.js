@@ -8,6 +8,7 @@ const events = [
     start: '2021-10-28T09:00:00',
     end: '2021-10-29T19:00:00',
     timezone: 'Europe/Istanbul',
+    selected: false,
     creator: 'Emir',
     todos: [
       {
@@ -40,6 +41,7 @@ const events = [
     start: '2021-10-29T09:00:00',
     end: '2021-10-29T19:00:00',
     timezone: 'Europe/Paris',
+    selected: false,
     creator: 'Patrik',
     todos: [
       {
@@ -65,6 +67,7 @@ const events = [
     start: '2021-10-30T09:00:00',
     end: '2021-10-30T19:00:00',
     timezone: 'America/Los_Angeles',
+    selected: false,
     creator: 'Teri',
     todos: [
       {
@@ -90,6 +93,7 @@ const events = [
     start: '2021-10-31T09:00:00',
     end: '2021-10-31T19:00:00',
     timezone: 'America/Los_Angeles',
+    selected: false,
     creator: 'Aya',
     todos: [
       {
@@ -115,6 +119,7 @@ const events = [
     start: '2021-10-01T09:00:00',
     end: '2021-10-01T19:00:00',
     timezone: 'Europe/Paris',
+    selected: false,
     creator: 'Jihye',
     todos: [
       {
@@ -140,6 +145,7 @@ const events = [
     start: '2021-10-01T09:00:00',
     end: '2021-10-01T19:00:00',
     timezone: 'Europe/Istanbul',
+    selected: false,
     creator: 'Jihye',
     todos: [
       {
@@ -165,6 +171,7 @@ const events = [
     start: '2021-10-01T09:00:00',
     end: '2021-10-01T19:00:00',
     timezone: 'Europe/Istanbul',
+    selected: false,
     creator: 'Jihye',
     todos: [
       {
@@ -190,6 +197,7 @@ const events = [
     start: '2021-10-01T09:00:00',
     end: '2021-10-01T19:00:00',
     timezone: 'Europe/Paris',
+    selected: false,
     creator: 'Jihye',
     todos: [
       {

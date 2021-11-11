@@ -23,10 +23,17 @@ const eventsReducer = (state, action) => {
         start: null,
         end: null,
         timezone: null,
+        selected: false,
         creator: action.creator,
         todos: [],
       };
       return [...state, newEvent];
+    case 'selectEvent':
+      return state.map((e) =>
+        action.eventId === e.id
+          ? { ...e, selected: true }
+          : { ...e, selected: false }
+      );
     case 'setNewDate':
       const { newDate } = action;
       return state.map((e) =>

@@ -1,32 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { EventsContext } from '../contexts/EventsContext';
 import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
 
-const eventSubMenu = [
-  {
-    name: 'Availability',
-    icon: 'fa-solid:user-clock',
-    isNavLink: true,
-    path: '/events/:eventId/availability',
-  },
-  {
-    name: 'Share',
-    icon: 'fa-solid:share-alt',
-    isNavLink: false,
-  },
-  {
-    name: 'Edit',
-    icon: 'bx:bxs-edit',
-    isNavLink: false,
-  },
-  {
-    name: 'Messages',
-    icon: 'bx:bxs-message',
-    isNavLink: true,
-    path: '/messages',
-  },
-];
 export default function EventSubMenu() {
+  const { eventData } = useContext(EventsContext);
+  const [selectedEvent] = eventData.filter((e) => e.selected);
+
+  const eventSubMenu = [
+    {
+      name: 'Availability',
+      icon: 'fa-solid:user-clock',
+      isNavLink: true,
+      path: `/events/${selectedEvent.id}/availability`,
+    },
+    {
+      name: 'Share',
+      icon: 'fa-solid:share-alt',
+      isNavLink: false,
+    },
+    {
+      name: 'Edit',
+      icon: 'bx:bxs-edit',
+      isNavLink: false,
+    },
+    {
+      name: 'Messages',
+      icon: 'bx:bxs-message',
+      isNavLink: true,
+      path: '/messages',
+    },
+  ];
+
   function handleIconClick(iconClicked) {
     if (iconClicked === 'Share') {
       handleShareClick();
