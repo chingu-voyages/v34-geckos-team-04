@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
+import { publishTheCalendarEvent } from '../utils/api';
 
 const eventSubMenu = [
   {
@@ -26,10 +27,23 @@ const eventSubMenu = [
     path: '/messages',
   },
 ];
-export default function EventSubMenu() {
+export default function EventSubMenu(props) {
+  const { name, desc, start, end, timezone } = props.event;
   function handleIconClick(iconClicked) {
     if (iconClicked === 'Share') {
-      handleShareClick();
+      let event = {
+        summary: name,
+        description: desc,
+        end: {
+          dateTime: end,
+          timeZone: timezone,
+        },
+        start: {
+          dateTime: start,
+          timeZone: timezone,
+        },
+      };
+      publishTheCalendarEvent(event);
     } else if (iconClicked === 'Edit') {
       handleEditClick();
     }

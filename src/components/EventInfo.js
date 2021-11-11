@@ -58,7 +58,7 @@ export default function EventInfo(props) {
           </li>
         </ul>
       </li>
-      <EventSubMenu />
+      <EventSubMenu event={event} />
     </div>
   );
 }

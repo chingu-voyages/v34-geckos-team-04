@@ -84,3 +84,21 @@ export const getSignedInUserInfo = async () => {
     console.log(error);
   }
 };
+
+export const publishTheCalendarEvent = (event) => {
+  try {
+    gapi.client.load('calendar', 'v3', () => {
+      var request = gapi.client.calendar.events.insert({
+        calendarId: 'primary',
+        resource: event,
+      });
+
+      request.execute(function (event) {
+        console.log('Event created: ' + event.htmlLink);
+        window.open(event.htmlLink);
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
