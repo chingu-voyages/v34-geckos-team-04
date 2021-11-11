@@ -22,6 +22,7 @@ const eventsReducer = (state, action) => {
         desc: action.desc,
         start: null,
         end: null,
+        timezone: null,
         creator: action.creator,
         todos: [],
       };
@@ -30,6 +31,11 @@ const eventsReducer = (state, action) => {
       const { newDate } = action;
       return state.map((e) =>
         action.eventId === e.id ? { ...e, [action.setting]: newDate } : e
+      );
+    case 'setTimezone':
+      const { timezone } = action;
+      return state.map((e) =>
+        action.eventId === e.id ? { ...e, timezone } : e
       );
     default:
       return state;
