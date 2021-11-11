@@ -22,6 +22,7 @@ __Built with__
 1. Run `npm install`
 1. Run `npm start` to start the server on http://localhost:3000
 1. View the Chingu meeting app
+1. Get your own Google API and create an `.env.local`
 
 ### Deployment
 [Heroku](https://dashboard.heroku.com/)
