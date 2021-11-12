@@ -1,4 +1,11 @@
-import React, { useState, useReducer, useEffect } from 'react';
+import React, {
+  useState,
+  useReducer,
+  useEffect,
+  //useCallback,
+  useLayoutEffect,
+  useContext,
+} from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,6 +15,7 @@ import {
 import LoginPage from './pages/LoginPage';
 import { UserContext } from './contexts/UserContext';
 import { EventsContext } from './contexts/EventsContext';
+import UIContext, { UIContextProvider } from './contexts/UIContext';
 import EventsPage from './pages/EventsPage';
 import events from './utils/eventData';
 import eventsReducer from './utils/eventsReducer';
@@ -26,6 +34,47 @@ const App = () => {
 
   const [eventData, dispatch] = useReducer(eventsReducer, events);
   console.log('eventData', eventData);
+
+  const { largeScreen, setLargeScreen } = useContext(UIContext);
+  console.log(largeScreen);
+
+  useEffect(() => {
+    console.log('screen size changed!');
+  }, [largeScreen]);
+
+  //initial rendering
+  // useEffect(() => {
+  //   setLargeScreen();
+  //   console.log(largeScreen);
+  // }, [setLargeScreen, largeScreen]);
+
+  // useLayoutEffect(() => {
+  //   console.log('useLayoutEffect running');
+  //   window.addEventListener('resize', setLargeScreen);
+  //   return () => window.removeEventListener('resize', setLargeScreen);
+  // }, [setLargeScreen]);
+
+  /////LEAVING AS A MEMO AN ALTERNATIVE FOR UI CONTEXT
+  //const [ui, setUi] = useState({ largeScreen: true });
+  // const setNewWidth = useCallback(() => {
+  //   if (window.innerWidth >= 1023) {
+  //     setUi({ largeScreen: true });
+  //   } else {
+  //     setUi({ largeScreen: false });
+  //   }
+  // }, []);
+
+  //initial rendering
+  //useEffect(() => {
+  //setNewWidth();
+  //}, [setNewWidth]);
+
+  //detecting size change
+  // useLayoutEffect(() => {
+  //   window.addEventListener('resize', setNewWidth);
+  //   return () => window.removeEventListener('resize', setNewWidth);
+  // }, [setNewWidth]);
+  /////
 
   const { gapi } = window;
   useEffect(() => {
@@ -61,16 +110,24 @@ const App = () => {
       <Router>
         <UserContext.Provider value={{ userData, setUserData }}>
           <EventsContext.Provider value={{ eventData, dispatch }}>
-            <Switch>
-              <Route exact path='/'>
-                {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
-              </Route>
-              <React.Fragment>
-                <PrivateRoute path='/events'>
-                  <EventsPage />
-                </PrivateRoute>
-              </React.Fragment>
-            </Switch>
+            {/* <UIContext.Provider value={{ ui, setUi }}> */}
+            <UIContextProvider>
+              <Switch>
+                <Route exact path='/'>
+                  {userData.loggedIn ? (
+                    <Redirect to='/events' />
+                  ) : (
+                    <LoginPage />
+                  )}
+                </Route>
+                <React.Fragment>
+                  <PrivateRoute path='/events'>
+                    <EventsPage />
+                  </PrivateRoute>
+                </React.Fragment>
+              </Switch>
+            </UIContextProvider>
+            {/* </UIContext.Provider> */}
           </EventsContext.Provider>
         </UserContext.Provider>
       </Router>
