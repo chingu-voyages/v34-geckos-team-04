@@ -103,3 +103,20 @@ export const editCalendarEvent = (event, googleEventId) => {
     console.log(error);
   }
 };
+
+export const deleteCalendarEvent = (googleEventId) => {
+  try {
+    window.gapi.client.load('calendar', 'v3', () => {
+      var request = window.gapi.client.calendar.events.delete({
+        calendarId: 'primary',
+        eventId: googleEventId,
+      });
+
+      request.execute((googleEventId) => {
+        console.log('Event deleted: ', googleEventId);
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};

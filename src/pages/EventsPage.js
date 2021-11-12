@@ -14,6 +14,7 @@ export default function EventsPage() {
   const { eventData: events } = useContext(EventsContext);
   const { userData } = useContext(UserContext);
   const { path } = useRouteMatch();
+  console.log('setActiveEent', activeEvent);
 
   return (
     <React.Fragment>

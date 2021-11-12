@@ -1,10 +1,10 @@
 import ToDoItem from './ToDoItem';
-import { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import handleTime from '../utils/handleTime';
 import { EventsContext } from '../contexts/EventsContext';
 import { useParams, Link, useRouteMatch } from 'react-router-dom';
 import EventSubMenu from './EventSubMenu';
-import { editCalendarEvent } from '../utils/api';
+import { deleteCalendarEvent, editCalendarEvent } from '../utils/api';
 import { Icon } from '@iconify/react';
 
 export default function EventInfo(props) {
@@ -13,12 +13,12 @@ export default function EventInfo(props) {
   const { url } = useRouteMatch();
   const event = eventData.find((e) => e.id === eventId);
   const [edit, setEdit] = useState(false);
-  const [name, setName] = useState(event.name);
-  const [desc, setDesc] = useState(event.desc);
+  const [name, setName] = useState(event?.name);
+  const [desc, setDesc] = useState(event?.desc);
 
   useEffect(() => {
-    setName(event.name);
-    setDesc(event.desc);
+    setName(event?.name);
+    setDesc(event?.desc);
     setEdit(false);
   }, [event]);
 
@@ -42,6 +42,18 @@ export default function EventInfo(props) {
         }
       }
     }
+  };
+
+  const handleDelete = () => {
+    if (event.googleEventId) {
+      deleteCalendarEvent(event.googleEventId);
+    }
+    setEdit(false);
+    props.setActiveEvent(false);
+    dispatch({
+      type: 'deleteEvent',
+      eventId,
+    });
   };
 
   if (event === undefined) {
@@ -96,12 +108,20 @@ export default function EventInfo(props) {
             {event.end && <p>{handleTime(event.end)}</p>}
             <p>{event.creator}</p>
             {edit && (
-              <button onClick={handleEdit}>
-                <Icon
-                  icon='fluent:checkmark-12-filled'
-                  className='w-12 h-12 text-green-500'
-                />
-              </button>
+              <React.Fragment>
+                <button onClick={handleEdit}>
+                  <Icon
+                    icon='fluent:checkmark-12-filled'
+                    className='w-12 h-12 text-green-500'
+                  />
+                </button>
+                <button onClick={handleDelete}>
+                  <Icon
+                    icon='fluent:delete-16-filled'
+                    className='w-12 h-12 text-red-500'
+                  />
+                </button>
+              </React.Fragment>
             )}
           </div>
         </div>
