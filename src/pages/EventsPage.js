@@ -20,7 +20,7 @@ export default function EventsPage() {
     <React.Fragment>
       <Header title='Breakfast' link={userData.imageUrl} returnBtn={true} />
       <MenuBar setActiveEvent={setActiveEvent} />
-      <div className='flex flex-row justify-around h-[calc(100%-10rem)] lg:ml-56'>
+      <div className='flex flex-row justify-around h-[calc(100%-10rem)] lg:h-full lg:ml-56'>
         {!activeEvent && <Redirect to='/events' />}
         <div
           className={`lg:w-1/3 flex justify-center overflow-y-auto ${
