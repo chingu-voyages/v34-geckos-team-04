@@ -14,6 +14,7 @@ const LoginPage = () => {
     if (successful) {
       getGoogleAuthedInfo();
     }
+
   };
 
   const getGoogleAuthedInfo = async () => {
