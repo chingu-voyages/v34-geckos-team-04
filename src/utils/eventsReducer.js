@@ -75,6 +75,13 @@ const eventsReducer = (state, action) => {
         e.id === action.eventId ? { ...e, todos: changedPrioTodos } : e
       );
 
+    case 'addGoogleEventId':
+      return state.map((e) =>
+        e.id === action.eventId
+          ? { ...e, googleEventId: action.googleEventId }
+          : e
+      );
+
     default:
       return state;
   }

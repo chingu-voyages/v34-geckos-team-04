@@ -7,7 +7,7 @@ import EventSubMenu from './EventSubMenu';
 
 export default function EventInfo(props) {
   const { eventId } = useParams();
-  const { eventData } = useContext(EventsContext);
+  const { eventData, dispatch } = useContext(EventsContext);
   const { url } = useRouteMatch();
   const event = eventData.find((e) => e.id === eventId);
   console.log('event:', event);
@@ -58,7 +58,7 @@ export default function EventInfo(props) {
           </li>
         </ul>
       </li>
-      <EventSubMenu event={event} />
+      <EventSubMenu dispatch={dispatch} event={event} />
     </div>
   );
 }

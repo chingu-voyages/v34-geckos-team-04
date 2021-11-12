@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
-import { publishTheCalendarEvent } from '../utils/api';
+import { EventsContext } from '../contexts/EventsContext';
+import { UserContext } from '../contexts/UserContext';
+// import { publishTheCalendarEvent } from '../utils/api';
 
 const eventSubMenu = [
   {
@@ -28,7 +30,34 @@ const eventSubMenu = [
   },
 ];
 export default function EventSubMenu(props) {
-  const { name, desc, start, end, timezone } = props.event;
+  const { name, desc, start, end, timezone, id, googleEventId } = props.event;
+  const { dispatch } = props;
+
+  const publishTheCalendarEvent = (event) => {
+    if (!googleEventId) {
+      try {
+        window.gapi.client.load('calendar', 'v3', () => {
+          var request = window.gapi.client.calendar.events.insert({
+            calendarId: 'primary',
+            resource: event,
+          });
+
+          request.execute((event) => {
+            console.log('Event created: ', event);
+            window.open(event.htmlLink);
+            dispatch({
+              type: 'addGoogleEventId',
+              eventId: id,
+              googleEventId: event.id,
+            });
+          });
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else console.log('event already created');
+  };
+
   function handleIconClick(iconClicked) {
     if (iconClicked === 'Share') {
       let event = {
