@@ -1,9 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
-import { EventsContext } from '../contexts/EventsContext';
-import { UserContext } from '../contexts/UserContext';
-// import { publishTheCalendarEvent } from '../utils/api';
 
 const eventSubMenu = [
   {
@@ -32,6 +29,7 @@ const eventSubMenu = [
 export default function EventSubMenu(props) {
   const { name, desc, start, end, timezone, id, googleEventId } = props.event;
   const { dispatch } = props;
+  const { edit, setEdit } = props.edit;
 
   const publishTheCalendarEvent = (event) => {
     if (!googleEventId) {
@@ -74,16 +72,8 @@ export default function EventSubMenu(props) {
       };
       publishTheCalendarEvent(event);
     } else if (iconClicked === 'Edit') {
-      handleEditClick();
+      setEdit(!edit);
     }
-  }
-
-  function handleShareClick() {
-    alert('Share Event Link');
-  }
-
-  function handleEditClick() {
-    alert('Edit Event');
   }
 
   const icon = eventSubMenu.map((icon) => {

@@ -85,20 +85,21 @@ export const getSignedInUserInfo = async () => {
   }
 };
 
-// export const publishTheCalendarEvent = (event) => {
-//   try {
-//     gapi.client.load('calendar', 'v3', () => {
-//       var request = gapi.client.calendar.events.insert({
-//         calendarId: 'primary',
-//         resource: event,
-//       });
+export const editCalendarEvent = (event, googleEventId) => {
+  try {
+    window.gapi.client.load('calendar', 'v3', () => {
+      var request = window.gapi.client.calendar.events.patch({
+        calendarId: 'primary',
+        resource: event,
+        eventId: googleEventId,
+      });
 
-//       request.execute((event) => {
-//         console.log('Event created: ', event);
-//         window.open(event.htmlLink);
-//       });
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+      request.execute((event) => {
+        console.log('Event patched: ', event);
+        window.open(event.htmlLink);
+      });
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
