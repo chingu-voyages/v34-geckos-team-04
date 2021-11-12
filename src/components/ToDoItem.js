@@ -40,7 +40,7 @@ const ToDoItem = (props) => {
         },
       });
     }
-  }, [prio]);
+  }, [prio, dispatch, eventId, todo]);
 
   const handleAssignChange = () => {
     if (assignees.length > 0 && assignees !== todo.assignees) {
