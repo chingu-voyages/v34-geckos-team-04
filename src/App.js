@@ -1,4 +1,10 @@
-import React, { useState, useReducer, useEffect } from 'react';
+import React, {
+  useState,
+  useReducer,
+  useEffect,
+  useCallback,
+  useLayoutEffect,
+} from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,6 +14,7 @@ import {
 import LoginPage from './pages/LoginPage';
 import { UserContext } from './contexts/UserContext';
 import { EventsContext } from './contexts/EventsContext';
+import { UIContext } from './contexts/UIContext';
 import EventsPage from './pages/EventsPage';
 import events from './utils/eventData';
 import eventsReducer from './utils/eventsReducer';
@@ -26,6 +33,27 @@ const App = () => {
 
   const [eventData, dispatch] = useReducer(eventsReducer, events);
   console.log('eventData', eventData);
+
+  const [largeScreen, setLargeScreen] = useState(true);
+
+  const setNewWidth = useCallback(() => {
+    if (window.innerWidth >= 1023) {
+      setLargeScreen(true);
+    } else {
+      setLargeScreen(false);
+    }
+  }, []);
+
+  //initial rendering
+  useEffect(() => {
+    setNewWidth();
+  }, [setNewWidth]);
+
+  //detecting size change
+  useLayoutEffect(() => {
+    window.addEventListener('resize', setNewWidth);
+    return () => window.removeEventListener('resize', setNewWidth);
+  }, [setNewWidth]);
 
   const { gapi } = window;
   useEffect(() => {
@@ -61,16 +89,22 @@ const App = () => {
       <Router>
         <UserContext.Provider value={{ userData, setUserData }}>
           <EventsContext.Provider value={{ eventData, dispatch }}>
-            <Switch>
-              <Route exact path='/'>
-                {userData.loggedIn ? <Redirect to='/events' /> : <LoginPage />}
-              </Route>
-              <React.Fragment>
-                <PrivateRoute path='/events'>
-                  <EventsPage />
-                </PrivateRoute>
-              </React.Fragment>
-            </Switch>
+            <UIContext.Provider value={{ largeScreen, setLargeScreen }}>
+              <Switch>
+                <Route exact path='/'>
+                  {userData.loggedIn ? (
+                    <Redirect to='/events' />
+                  ) : (
+                    <LoginPage />
+                  )}
+                </Route>
+                <React.Fragment>
+                  <PrivateRoute path='/events'>
+                    <EventsPage />
+                  </PrivateRoute>
+                </React.Fragment>
+              </Switch>
+            </UIContext.Provider>
           </EventsContext.Provider>
         </UserContext.Provider>
       </Router>

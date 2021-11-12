@@ -1,16 +1,17 @@
 import React from 'react';
 import {
-  useState,
-  useEffect,
-  useLayoutEffect,
+  //useState,
+  //useEffect,
+  //useLayoutEffect,
   useContext,
-  useCallback,
+  //useCallback,
 } from 'react';
 import { UserContext } from '../contexts/UserContext';
 
 import { Icon } from '@iconify/react';
 import SignoutButton from './shared/SignoutButton';
 import { useHistory, useRouteMatch } from 'react-router-dom';
+import { UIContext } from '../contexts/UIContext';
 //import profilePic from '../assets/profile-pic-dummy.jpg';
 
 const menu = [
@@ -21,23 +22,10 @@ const menu = [
 
 const MenuBar = (props) => {
   const { userData } = useContext(UserContext);
-  const [largeScreen, setLargeScreen] = useState(false);
+  const { largeScreen } = useContext(UIContext);
   const history = useHistory();
   const { url } = useRouteMatch();
   console.log('urlinMenu', url);
-
-  const setNewWidth = useCallback(() => {
-    if (window.innerWidth >= 1023) {
-      setLargeScreen(true);
-    } else {
-      setLargeScreen(false);
-    }
-  }, []);
-
-  //initial rendering
-  useEffect(() => {
-    setNewWidth();
-  }, [setNewWidth]);
 
   const handleIconClick = (iconClicked) => {
     if (iconClicked === 'New Event') {
@@ -48,12 +36,6 @@ const MenuBar = (props) => {
       history.push(`/events`);
     }
   };
-
-  //detecting size change
-  useLayoutEffect(() => {
-    window.addEventListener('resize', setNewWidth);
-    return () => window.removeEventListener('resize', setNewWidth);
-  }, [setNewWidth]);
 
   const icon = menu.map((icon, index) => {
     return (
