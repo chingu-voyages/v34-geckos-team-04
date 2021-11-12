@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import SetDate from './SetDate';
-//import TimeVote from './TimeVote';
+import TimeVote from './TimeVote';
 import { EventsContext } from '../../contexts/EventsContext';
 
 const AvailabilityCheck = () => {
@@ -16,7 +16,7 @@ const AvailabilityCheck = () => {
         {`< Back to event info`}
       </Link>
       <SetDate eventId={eventId} start={start} event={event} />
-      {/* <TimeVote /> */}
+      <TimeVote />
     </Fragment>
   );
 };

@@ -14,13 +14,18 @@ const VoteResult = (props) => {
   ))
   const votingCount = {}
   selectedTime.forEach(e => votingCount[e] ? votingCount[e]++ : votingCount[e] = 1)
+  console.log(schedule)
+  console.log(selectedTime)
+  console.log(votingCount)
 
   const renderCustomDateCell = (time, selected, innerRef) => {
     <div style={{ textAlign: 'center' }} ref={innerRef}>
-      {selected ? `${votingCount[time]}` : ` `}
+      {selected ? time : ''}
     </div>
+    console.log(votingCount)
+    console.log(selected)
   }
-
+//renderDateCell={renderCustomDateCell}
   return (
     <ScheduleSelector
       // showing selected time from all users
@@ -28,7 +33,7 @@ const VoteResult = (props) => {
       numDays={5}
       minTime={8}
       maxTime={22}
-      hourlyChunks={2}
+      hourlyChunks={1}
       renderDateCell={renderCustomDateCell}
     />
   );

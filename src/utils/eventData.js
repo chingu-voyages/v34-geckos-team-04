@@ -40,6 +40,7 @@ const events = [
     start: '2021-10-29T09:00:00',
     end: '2021-10-29T19:00:00',
     creator: 'Patrik',
+    availability: [],
     todos: [
       {
         id: uuidv4(),
@@ -64,6 +65,7 @@ const events = [
     start: '2021-10-30T09:00:00',
     end: '2021-10-30T19:00:00',
     creator: 'Teri',
+    availability: [],
     todos: [
       {
         id: uuidv4(),
@@ -88,6 +90,7 @@ const events = [
     start: '2021-10-31T09:00:00',
     end: '2021-10-31T19:00:00',
     creator: 'Aya',
+    availability: [],
     todos: [
       {
         id: uuidv4(),
@@ -112,6 +115,7 @@ const events = [
     start: '2021-10-01T09:00:00',
     end: '2021-10-01T19:00:00',
     creator: 'Jihye',
+    availability: [],
     todos: [
       {
         id: uuidv4(),
