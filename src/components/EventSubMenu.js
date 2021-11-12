@@ -97,7 +97,7 @@ export default function EventSubMenu(props) {
   });
 
   return (
-    <nav className='w-screen h-20 fixed -bottom-0 lg:w-1/4 lg:flex lg:flex-col lg:-top-0 lg:-right-0'>
+    <nav className='w-full h-10 fixed bottom-20 lg:w-1/4 lg:flex lg:flex-col lg:-top-0 lg:-right-0'>
       <ul className='h-full flex justify-around'>{icon}</ul>
     </nav>
   );
