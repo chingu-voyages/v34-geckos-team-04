@@ -22,11 +22,8 @@ const App = () => {
     email: null,
     imageUrl: null,
   });
-  console.log('userData', userData);
 
   const [eventData, dispatch] = useReducer(eventsReducer, events);
-  console.log('eventData', eventData);
-
   const { gapi } = window;
   useEffect(() => {
     if (!userData.loggedIn) {

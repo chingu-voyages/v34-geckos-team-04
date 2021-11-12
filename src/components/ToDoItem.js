@@ -80,7 +80,6 @@ const ToDoItem = (props) => {
         id={todo.id}
         className='form-checkbox rounded-full w-12 h-12 ml-2 text-blue-400 focus:ring-0'
         onChange={() => {
-          console.log('triggered!');
           dispatch({ type: 'toggleTodo', eventId, todoClicked: todo.id });
         }}
         checked={todo.status}

@@ -18,7 +18,6 @@ const MenuBar = (props) => {
   const [largeScreen, setLargeScreen] = useState(false);
   const history = useHistory();
   const { url } = useRouteMatch();
-  console.log('urlinMenu', url);
 
   const setNewWidth = () => {
     if (window.innerWidth >= 1023) {

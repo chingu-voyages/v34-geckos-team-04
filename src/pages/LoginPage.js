@@ -12,9 +12,6 @@ const LoginPage = () => {
   const [error, setError] = useState(null);
 
   const onSuccess = (res) => {
-    console.log('Logged in!');
-    console.log('response:', res);
-
     const { name, email, imageUrl } = res.profileObj;
     setUserData({ loggedIn: true, name, email, imageUrl });
   };
