@@ -82,6 +82,13 @@ const eventsReducer = (state, action) => {
           : e
       );
 
+    case 'editEvent':
+      return state.map((e) =>
+        e.id === action.eventId
+          ? { ...e, name: action.name, desc: action.desc }
+          : e
+      );
+
     default:
       return state;
   }
