@@ -19,10 +19,10 @@ export default function EventsPage() {
     <React.Fragment>
       <Header title='Breakfast' link={userData.imageUrl} returnBtn={true} />
       <MenuBar setActiveEvent={setActiveEvent} />
-      <main className='flex flex-row justify-around h-full lg:ml-56'>
+      <main className='flex flex-row justify-around h-full lg:ml-56 overflow-y-scroll'>
         {!activeEvent && <Redirect to='/events' />}
         <div
-          className={`lg:w-1/3 flex justify-center overflow-y-auto ${
+          className={`lg:w-1/3 flex justify-center ${
             activeEvent && 'hidden lg:flex'
           }`}
         >
@@ -35,7 +35,7 @@ export default function EventsPage() {
           </ul>
         </div>
         <div
-          className={`w-screen lg:w-2/3 flex flex-col bg-gray-50 border-l overflow-y-auto px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28 ${
+          className={`w-screen lg:w-2/3 flex flex-col bg-gray-50 border-l px-8 sm:px-12 md:px-16 lg:px-20 xl:px-24 2xl:px-28 ${
             !activeEvent && 'hidden lg:flex'
           }`}
         >
