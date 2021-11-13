@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
 
@@ -27,9 +27,19 @@ const eventSubMenu = [
   },
 ];
 export default function EventSubMenu(props) {
-  const { name, desc, start, end, timezone, id, googleEventId } = props.event;
+  const {
+    name,
+    desc,
+    start,
+    end,
+    timezone,
+    id,
+    googleEventId,
+    googleEventLink,
+  } = props.event;
   const { dispatch } = props;
   const { edit, setEdit } = props.edit;
+  const [copy, setCopy] = useState(false);
 
   const publishTheCalendarEvent = (event) => {
     if (!googleEventId) {
@@ -42,18 +52,35 @@ export default function EventSubMenu(props) {
 
           request.execute((event) => {
             console.log('Event created: ', event);
-            window.open(event.htmlLink);
+            navigator.clipboard
+              .writeText(event.htmlLink)
+              .then(() => setCopy(true))
+              .then(() => window.open(event.htmlLink))
+              .catch((err) => {
+                console.error('Async: Could not copy text: ', err);
+                setCopy(false);
+              });
             dispatch({
               type: 'addGoogleEventId',
               eventId: id,
               googleEventId: event.id,
+              googleEventLink: event.htmlLink,
             });
           });
         });
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
-    } else console.log('event already created');
+    } else {
+      console.warn('Event already created.');
+      navigator.clipboard
+        .writeText(googleEventLink)
+        .then(() => setCopy(true))
+        .catch((err) => {
+          console.error('Async: Could not copy text: ', err);
+          setCopy(false);
+        });
+    }
   };
 
   function handleIconClick(iconClicked) {

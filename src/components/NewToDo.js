@@ -1,7 +1,6 @@
 import { Icon } from '@iconify/react';
 import { useState, useContext } from 'react';
 import { EventsContext } from '../contexts/EventsContext';
-import { UserContext } from '../contexts/UserContext';
 import PrioSelector from './PrioSelector';
 
 const NewToDo = (props) => {

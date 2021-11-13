@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { EventsContext } from '../contexts/EventsContext';
-import EventSubMenu from './EventSubMenu';
 import ToDoItem from './ToDoItem';
 import { Icon } from '@iconify/react';
 import NewToDo from './NewToDo';

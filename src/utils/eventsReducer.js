@@ -1,8 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 
 const eventsReducer = (state, action) => {
-  const todos = state.find((e) => e.id === action.eventId).todos;
-
+  let todos;
+  if (action.eventId) {
+    todos = state.find((e) => e.id === action.eventId).todos;
+  }
   switch (action.type) {
     case 'toggleTodo':
       // gets event todos from state
@@ -78,7 +80,11 @@ const eventsReducer = (state, action) => {
     case 'addGoogleEventId':
       return state.map((e) =>
         e.id === action.eventId
-          ? { ...e, googleEventId: action.googleEventId }
+          ? {
+              ...e,
+              googleEventId: action.googleEventId,
+              googleEventLink: action.googleEventLink,
+            }
           : e
       );
 

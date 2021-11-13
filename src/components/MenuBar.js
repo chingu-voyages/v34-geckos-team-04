@@ -18,7 +18,6 @@ const MenuBar = (props) => {
   const [largeScreen, setLargeScreen] = useState(false);
   const history = useHistory();
   const { url } = useRouteMatch();
-  console.log('urlinMenu', url);
 
   const setNewWidth = () => {
     if (window.innerWidth >= 1023) {
@@ -40,6 +39,8 @@ const MenuBar = (props) => {
     } else if (iconClicked === 'Home') {
       props.setActiveEvent(false);
       history.push(`/events`);
+    } else if (iconClicked === 'Google Calendar') {
+      window.open('https://calendar.google.com/calendar/');
     }
   };
 
@@ -80,7 +81,7 @@ const MenuBar = (props) => {
           <div className='flex items-center'>
             <img
               src={userData.imageUrl}
-              alt='Profile Picture'
+              alt='Profile Avatar'
               className='h-12 w-12 m-2'
             />
             <div>
