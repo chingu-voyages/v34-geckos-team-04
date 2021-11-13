@@ -24,6 +24,9 @@ export default function EventInfo(props) {
 
   const handleEdit = () => {
     if (name.length > 0 && desc.length > 0) {
+      if (name === event.name || desc === event.desc) {
+        setEdit(false);
+      }
       if (name !== event.name || desc !== event.desc) {
         dispatch({
           type: 'editEvent',
