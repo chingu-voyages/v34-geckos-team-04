@@ -56,6 +56,20 @@ const ToDoItem = (props) => {
 
     setAssigneeInput(false);
   };
+
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+        handleAssignChange();
+        handleNameChange();
+      }
+    };
+    document.addEventListener('keydown', listener);
+    return () => {
+      document.removeEventListener('keydown', listener);
+    };
+  }, [name, assignees]);
+
   return (
     <li
       className={`flex flex-row items-center mb-8 w-full relative ${
