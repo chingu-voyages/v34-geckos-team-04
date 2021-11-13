@@ -25,9 +25,7 @@ const NewToDo = (props) => {
         prio,
       });
     } else if (
-      prio !== '' ||
-      taskName.length > 0 ||
-      assignee.length > 0 ||
+      (prio !== '' || taskName.length > 0 || assignee.length > 0) &&
       type === 'add'
     ) {
       return false;
