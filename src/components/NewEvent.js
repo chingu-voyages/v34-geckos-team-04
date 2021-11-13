@@ -2,12 +2,14 @@ import { useContext, useState } from 'react';
 import { EventsContext } from '../contexts/EventsContext';
 import { UserContext } from '../contexts/UserContext';
 import { Icon } from '@iconify/react';
+import { useHistory } from 'react-router-dom';
 
-const NewEvent = () => {
+const NewEvent = (props) => {
   const { userData } = useContext(UserContext);
   const { dispatch } = useContext(EventsContext);
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
+  const history = useHistory();
 
   // dispatches a new event to reducer
   // resets form state to default
@@ -21,6 +23,7 @@ const NewEvent = () => {
     });
     setName('');
     setDesc('');
+    props.setActiveEvent(false);
   };
 
   return (

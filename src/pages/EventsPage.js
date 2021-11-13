@@ -42,7 +42,7 @@ export default function EventsPage() {
         >
           <Switch>
             <Route path={`${path}/new`} exact>
-              <NewEvent />
+              <NewEvent setActiveEvent={setActiveEvent} />
             </Route>
             <Route path={`/events/:eventId`} exact>
               {/* setActiveEvent prop is temporary until menu/header merged */}
