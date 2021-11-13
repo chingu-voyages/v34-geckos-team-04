@@ -33,7 +33,7 @@ const LoginPage = () => {
   });
 
   return (
-    <div className='flex flex-col h-screen w-screen items-center justify-around'>
+    <main className='flex flex-col h-screen w-screen items-center justify-around'>
       <h1 className='text-6xl font-bold'>Meeting App?</h1>
       <img src={loginPagePic} alt='Meeting app' />
       <button
@@ -44,7 +44,7 @@ const LoginPage = () => {
         <span>Sign in with Google</span>
       </button>
       {error && <Alert error='Login failed!' detail={error} />}
-    </div>
+    </main>
   );
 };
 export default LoginPage;
