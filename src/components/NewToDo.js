@@ -10,8 +10,13 @@ const NewToDo = (props) => {
   const [prio, setPrio] = useState('');
   const { dispatch } = useContext(EventsContext);
 
-  const handleClick = () => {
-    if (taskName.length > 0 && assignee.length > 0) {
+  const handleClick = (type) => {
+    if (
+      prio !== '' &&
+      taskName.length > 0 &&
+      assignee.length > 0 &&
+      type === 'add'
+    ) {
       dispatch({
         type: 'addTodo',
         eventId: props.eventId,
@@ -19,12 +24,19 @@ const NewToDo = (props) => {
         assignee,
         prio,
       });
-      setPrioSelector(false);
-      setPrio('');
-      setTaskName('');
-      setAssignee('');
-      props.setAddTask(false);
+    } else if (
+      prio !== '' ||
+      taskName.length > 0 ||
+      assignee.length > 0 ||
+      type === 'add'
+    ) {
+      return false;
     }
+    setPrioSelector(false);
+    setPrio('');
+    setTaskName('');
+    setAssignee('');
+    props.setAddTask(false);
   };
 
   return (
@@ -75,7 +87,12 @@ const NewToDo = (props) => {
         <Icon
           icon='fluent:checkmark-12-filled'
           className='ml-4 w-8 h-10 hover:text-green-500 active:text-green-700 cursor-pointer'
-          onClick={handleClick}
+          onClick={() => handleClick('add')}
+        />
+        <Icon
+          icon='entypo:cross'
+          className='ml-4 w-8 h-10 hover:text-red-500 active:text-red-700 cursor-pointer'
+          onClick={() => handleClick('remove')}
         />
       </div>
     </div>
