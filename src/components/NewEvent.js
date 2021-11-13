@@ -1,16 +1,13 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { EventsContext } from '../contexts/EventsContext';
 import { UserContext } from '../contexts/UserContext';
 import { Icon } from '@iconify/react';
-import { useHistory } from 'react-router-dom';
 
 const NewEvent = (props) => {
   const { userData } = useContext(UserContext);
   const { dispatch } = useContext(EventsContext);
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
-  const history = useHistory();
-
   // dispatches a new event to reducer
   // resets form state to default
   const handleForm = (e) => {
@@ -25,6 +22,19 @@ const NewEvent = (props) => {
     setDesc('');
     props.setActiveEvent(false);
   };
+
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+        if (name !== '' && desc !== '') {
+          event.preventDefault();
+          handleForm(event);
+        }
+      }
+    };
+    document.addEventListener('keydown', listener);
+    return () => document.removeEventListener('keydown', listener);
+  }, [name, desc]);
 
   return (
     <div className='h-full mb-20 flex justify-center'>
