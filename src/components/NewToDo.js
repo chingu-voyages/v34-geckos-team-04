@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { EventsContext } from '../contexts/EventsContext';
 import PrioSelector from './PrioSelector';
 
@@ -38,6 +38,18 @@ const NewToDo = (props) => {
     setAssignee('');
     props.setAddTask(false);
   };
+
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+        handleClick('add');
+      }
+    };
+    document.addEventListener('keydown', listener);
+    return () => {
+      document.removeEventListener('keydown', listener);
+    };
+  }, [taskName, assignee]);
 
   return (
     <div className='flex flex-row w-full justify-between items-center relative'>
