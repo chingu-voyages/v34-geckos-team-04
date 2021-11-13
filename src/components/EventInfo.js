@@ -5,7 +5,7 @@ import { EventsContext } from '../contexts/EventsContext';
 import { useParams, Link, useRouteMatch } from 'react-router-dom';
 import EventSubMenu from './EventSubMenu';
 
-export default function EventInfo(props) {
+export default function EventInfo() {
   const { eventId } = useParams();
   const { eventData } = useContext(EventsContext);
   const { url } = useRouteMatch();

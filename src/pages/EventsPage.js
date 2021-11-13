@@ -49,8 +49,7 @@ export default function EventsPage() {
               <NewEvent />
             </Route>
             <Route path={`/events/:eventId`} exact>
-              {/* setActiveEvent prop is temporary until menu/header merged */}
-              <EventInfo setActiveEvent={setActiveEvent} />
+              <EventInfo />
             </Route>
             <Route path='/events/:eventId/todos'>
               <ToDoList />
