@@ -63,17 +63,17 @@ export default function EventInfo(props) {
   const todos = event.todos;
 
   return (
-    <div className='mb-20 lg:mt-20 lg:mb-0'>
-      <li className='list-none'>
+    <div className='mb-20 lg:mt-20 lg:mb-0 flex flex-col items-center'>
+      <li className='list-none w-full'>
         {/* Link is temporary until menu/header merged */}
         {/* It adds ability to go back to events page on mobile screens */}
-        <Link
+        {/* <Link
           to='/events'
           onClick={() => props.setActiveEvent(false)}
           className='inline-block lg:hidden'
         >
           {`< Back to events`}
-        </Link>
+        </Link> */}
 
         <div className='flex flex-row justify-around'>
           <div id='left'>
@@ -125,12 +125,27 @@ export default function EventInfo(props) {
             )}
           </div>
         </div>
-        <ul className='bg-red-400 text-black rounded-3xl flex flex-col items-center justify-center shadow-2xl py-6 px-6 max-w-full'>
+        <ul className='bg-red-400 text-black rounded-3xl flex flex-col items-center justify-center shadow-2xl py-6 px-6 max-w-full mt-8'>
           {todos.map((todo, index) => (
-            <ToDoItem key={index} eventId={eventId} todo={todo} prio='hidden' />
+            <ToDoItem
+              key={index}
+              eventId={eventId}
+              todo={todo}
+              prio='hidden'
+              index={index}
+            />
           ))}
           <li>
-            <Link to={`${url}/todos`}>Todos List</Link>
+            <Link to={`${url}/todos`} className=''>
+              {todos.length === 0 ? (
+                <p>No tasks set yet. Click to set new tasks.</p>
+              ) : (
+                <Icon
+                  icon='fluent:more-horizontal-16-filled'
+                  className='w-8 h-8 hover:bg-red-600 active:bg-red-800 rounded-full transition duration-200 mb-4'
+                />
+              )}
+            </Link>
           </li>
         </ul>
       </li>

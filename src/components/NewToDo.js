@@ -74,7 +74,7 @@ const NewToDo = (props) => {
         />
         <Icon
           icon='fluent:checkmark-12-filled'
-          className='ml-4 w-8 h-10'
+          className='ml-4 w-8 h-10 hover:text-green-500 active:text-green-700 cursor-pointer'
           onClick={handleClick}
         />
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
 
@@ -40,6 +40,8 @@ export default function EventSubMenu(props) {
   const { dispatch } = props;
   const { edit, setEdit } = props.edit;
   const [copy, setCopy] = useState(false);
+
+  useEffect(() => setCopy(false), [props.event]);
 
   const publishTheCalendarEvent = (event) => {
     if (!googleEventId) {
@@ -108,23 +110,36 @@ export default function EventSubMenu(props) {
       <li key={icon.name} className='lg:flex lg:items-center'>
         {icon.isNavLink ? (
           <NavLink to={icon.path}>
-            <Icon icon={icon.icon} color='#F0D2AC' width={36} height={36} />
+            <Icon
+              icon={icon.icon}
+              className='text-[#F0D2AC] cursor-pointer hover:text-yellow-400 active:text-yellow-600'
+              width={36}
+              height={36}
+            />
           </NavLink>
         ) : (
-          <Icon
-            icon={icon.icon}
-            color='#F0D2AC'
-            width={36}
-            height={36}
-            onClick={() => handleIconClick(icon.name)}
-          />
+          <React.Fragment>
+            <Icon
+              icon={icon.icon}
+              width={36}
+              height={36}
+              onClick={() => handleIconClick(icon.name)}
+              className='text-[#F0D2AC] cursor-pointer hover:text-yellow-400 active:text-yellow-600'
+            />
+            {copy && icon.name === 'Share' && (
+              <div className='absolute bottom-12 lg:top-12 lg:bottom-0 bg-gray-600 text-white h-10 px-2 leading-10 rounded-xl'>
+                <p>Event link copied!</p>
+                <span className='absolute bg-gray-600 w-3 h-3 lg:-top-1 -bottom-1 left-4 transform rotate-45'></span>
+              </div>
+            )}
+          </React.Fragment>
         )}
       </li>
     );
   });
 
   return (
-    <nav className='w-screen h-20 fixed -bottom-0 lg:w-1/4 lg:flex lg:flex-col lg:-top-0 lg:-right-0'>
+    <nav className='w-full h-10 fixed bottom-20 lg:w-1/4 lg:flex lg:flex-col lg:-top-0 lg:-right-0'>
       <ul className='h-full flex justify-around'>{icon}</ul>
     </nav>
   );

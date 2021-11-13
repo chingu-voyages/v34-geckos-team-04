@@ -19,7 +19,10 @@ const SignoutButton = () => {
   };
 
   return (
-    <button className='bg-red-600 rounded text-white' onClick={signOut}>
+    <button
+      className='bg-red-600 hover:bg-red-700 active:bg-red-800 transition duration-200 rounded text-white'
+      onClick={signOut}
+    >
       SIGN OUT
     </button>
   );
