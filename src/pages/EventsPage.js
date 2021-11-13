@@ -14,11 +14,17 @@ export default function EventsPage() {
   const { eventData: events } = useContext(EventsContext);
   const { userData } = useContext(UserContext);
   const { path } = useRouteMatch();
+  const [title, setTitle] = useState('');
+
+  function handleEventItemClick(eventName) {
+    setActiveEvent(true);
+    setTitle(eventName);
+  }
 
   return (
     <React.Fragment>
       <Header
-        title='Breakfast'
+        title={activeEvent ? title : 'Events'}
         link={userData.imageUrl}
         returnBtn={true}
         setActiveEvent={setActiveEvent}
@@ -34,7 +40,10 @@ export default function EventsPage() {
           <ul className='flex flex-col space-y-10 items-center w-screen'>
             {events.map((event, index) => (
               <Link key={event.id} to={`/events/${event.id}`}>
-                <EventItem event={event} onClick={() => setActiveEvent(true)} />
+                <EventItem
+                  event={event}
+                  onClick={() => handleEventItemClick(event.name)}
+                />
               </Link>
             ))}
           </ul>
