@@ -17,7 +17,12 @@ export default function EventsPage() {
 
   return (
     <React.Fragment>
-      <Header title='Breakfast' link={userData.imageUrl} returnBtn={true} />
+      <Header
+        title='Breakfast'
+        link={userData.imageUrl}
+        returnBtn={true}
+        setActiveEvent={setActiveEvent}
+      />
       <MenuBar setActiveEvent={setActiveEvent} />
       <main className='flex flex-row justify-around h-full lg:ml-56 overflow-y-scroll'>
         {!activeEvent && <Redirect to='/events' />}

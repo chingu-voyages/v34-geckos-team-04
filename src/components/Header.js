@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { UserContext } from '../contexts/UserContext';
 import SignoutButton from './shared/SignoutButton';
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   const { userData } = useContext(UserContext);
@@ -12,13 +13,20 @@ const Header = (props) => {
 
   return (
     <header className='bg-white w-screen h-20 flex fixed justify-around items-center lg:hidden'>
-      <Icon
-        icon='ic:round-arrow-back-ios'
-        color='#4a3f3f'
-        width='30'
-        height='30'
-        className={`${props.returnBtn ? '' : 'invisible'}`}
-      />
+      <Link
+        to='/events'
+        onClick={() => props.setActiveEvent(false)}
+        className='inline-block lg:hidden'
+      >
+        <Icon
+          icon='ic:round-arrow-back-ios'
+          color='#4a3f3f'
+          width='30'
+          height='30'
+          className={`${props.returnBtn ? '' : 'invisible'}`}
+        />
+      </Link>
+
       <h2 className='text-2xl'>{props.title}</h2>
       <img
         src={props.link}
