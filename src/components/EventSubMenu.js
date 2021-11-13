@@ -81,15 +81,20 @@ export default function EventSubMenu(props) {
       <li key={icon.name} className='lg:flex lg:items-center'>
         {icon.isNavLink ? (
           <NavLink to={icon.path}>
-            <Icon icon={icon.icon} color='#F0D2AC' width={36} height={36} />
+            <Icon
+              icon={icon.icon}
+              className='text-[#F0D2AC] cursor-pointer hover:text-yellow-400 active:text-yellow-600'
+              width={36}
+              height={36}
+            />
           </NavLink>
         ) : (
           <Icon
             icon={icon.icon}
-            color='#F0D2AC'
             width={36}
             height={36}
             onClick={() => handleIconClick(icon.name)}
+            className='text-[#F0D2AC] cursor-pointer hover:text-yellow-400 active:text-yellow-600'
           />
         )}
       </li>
