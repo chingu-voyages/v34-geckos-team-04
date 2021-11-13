@@ -57,7 +57,11 @@ const ToDoItem = (props) => {
     setAssigneeInput(false);
   };
   return (
-    <li className='flex flex-row items-center mb-8 w-full relative'>
+    <li
+      className={`flex flex-row items-center mb-8 w-full relative ${
+        props.index >= 5 && 'hidden'
+      }`}
+    >
       <span
         className={`w-2.5 h-16 ${
           todo?.prio === 'high'
@@ -93,7 +97,7 @@ const ToDoItem = (props) => {
         {nameInput && (
           <input
             type='text'
-            className='form-input border h-8 w-full ml-3 rounded-full flex-shrink'
+            className='form-input border h-8 max-w-[40%] ml-3 rounded-full flex-shrink'
             value={name}
             onChange={(e) => setName(e.target.value)}
             onBlur={handleNameChange}
@@ -106,7 +110,7 @@ const ToDoItem = (props) => {
         {assigneeInput && (
           <input
             type='text'
-            className='form-input border h-8 rounded-full flex-shrink'
+            className='form-input border h-8 max-w-[40%] rounded-full flex-shrink'
             value={assignees}
             onChange={(e) => setAssignees(e.target.value)}
             onBlur={handleAssignChange}
@@ -116,7 +120,9 @@ const ToDoItem = (props) => {
       </div>
       <Icon
         icon='entypo:cross'
-        className={`ml-4 w-10 h-10 ${props.prio === 'hidden' && 'hidden'}`}
+        className={`ml-4 w-10 h-10 ${
+          props.prio === 'hidden' && 'hidden'
+        } rounded-full hover:text-red-500 transition duration-200 cursor-pointer`}
         onClick={() =>
           dispatch({ type: 'deleteTodo', eventId, todoId: todo.id })
         }
