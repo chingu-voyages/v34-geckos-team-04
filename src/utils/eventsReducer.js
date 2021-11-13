@@ -80,7 +80,11 @@ const eventsReducer = (state, action) => {
     case 'addGoogleEventId':
       return state.map((e) =>
         e.id === action.eventId
-          ? { ...e, googleEventId: action.googleEventId }
+          ? {
+              ...e,
+              googleEventId: action.googleEventId,
+              googleEventLink: action.googleEventLink,
+            }
           : e
       );
 
