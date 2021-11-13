@@ -51,9 +51,9 @@ export default function EventSubMenu(props) {
           });
         });
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
-    } else console.log('event already created');
+    } else console.warn('Event already created.');
   };
 
   function handleIconClick(iconClicked) {
