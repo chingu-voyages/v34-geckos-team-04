@@ -39,6 +39,8 @@ const MenuBar = (props) => {
     } else if (iconClicked === 'Home') {
       props.setActiveEvent(false);
       history.push(`/events`);
+    } else if (iconClicked === 'Google Calendar') {
+      window.open('https://calendar.google.com/calendar/');
     }
   };
 
