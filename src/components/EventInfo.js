@@ -59,6 +59,18 @@ export default function EventInfo(props) {
     });
   };
 
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+        handleEdit();
+      }
+    };
+    document.addEventListener('keydown', listener);
+    return () => {
+      document.removeEventListener('keydown', listener);
+    };
+  }, [name, desc]);
+
   if (event === undefined) {
     return <p>Event doesn't exist!</p>;
   }
