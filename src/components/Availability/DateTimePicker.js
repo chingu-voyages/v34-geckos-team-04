@@ -3,6 +3,7 @@ import { EventsContext } from '../../contexts/EventsContext';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDateTimePicker from '@mui/lab/DesktopDateTimePicker';
+import MobileDateTimePicker from '@mui/lab/MobileDatePicker';
 import TextField from '@mui/material/TextField';
 
 const DateTimePicker = ({ minDateTime, setting, eventId, eventDate }) => {
@@ -18,12 +19,22 @@ const DateTimePicker = ({ minDateTime, setting, eventId, eventDate }) => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DesktopDateTimePicker
-        value={date}
-        onChange={changeDateHandler}
-        minDateTime={minDateTime}
-        renderInput={(params) => <TextField {...params} />}
-      />
+      <div className='hidden lg:flex'>
+        <DesktopDateTimePicker
+          value={date}
+          onChange={changeDateHandler}
+          minDateTime={minDateTime}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </div>
+      <div className='flex lg:hidden'>
+        <MobileDateTimePicker
+          value={date}
+          onChange={changeDateHandler}
+          minDateTime={minDateTime}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </div>
     </LocalizationProvider>
   );
 };

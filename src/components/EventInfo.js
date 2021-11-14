@@ -10,9 +10,6 @@ export default function EventInfo(props) {
   const { eventData } = useContext(EventsContext);
   const { url } = useRouteMatch();
   const event = eventData.find((e) => e.id === eventId);
-  // console.log('event:', event);
-  // console.log(handleTime(event.start));
-  // console.log(handleTime(event.ends));
 
   if (event === undefined) {
     return <p>Event doesn't exist!</p>;
@@ -50,7 +47,7 @@ export default function EventInfo(props) {
           </div>
         </div>
         {/* TEMPORARILY ADDED LINK BELOW */}
-        <Link to={`${url}/availability`}>Change Time</Link>
+        {/* <Link to={`${url}/availability`}>Change Time</Link> */}
         <ul className='bg-red-400 text-black rounded-3xl flex flex-col items-center justify-center shadow-2xl py-6 px-6 max-w-full'>
           {todos.map((todo, index) => (
             <ToDoItem key={index} eventId={eventId} todo={todo} prio='hidden' />
