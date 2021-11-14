@@ -10,6 +10,7 @@ const events = [
     timezone: 'Europe/Istanbul',
     selected: false,
     creator: 'Emir',
+    availability: [],
     todos: [
       {
         id: uuidv4(),
@@ -43,6 +44,7 @@ const events = [
     timezone: 'Europe/Paris',
     selected: false,
     creator: 'Patrik',
+    availability: [],
     todos: [
       {
         id: uuidv4(),
@@ -69,6 +71,7 @@ const events = [
     timezone: 'America/Los_Angeles',
     selected: false,
     creator: 'Teri',
+    availability: [],
     todos: [
       {
         id: uuidv4(),
@@ -95,6 +98,7 @@ const events = [
     timezone: 'America/Los_Angeles',
     selected: false,
     creator: 'Aya',
+    availability: [],
     todos: [
       {
         id: uuidv4(),
@@ -121,6 +125,7 @@ const events = [
     timezone: 'Europe/Paris',
     selected: false,
     creator: 'Jihye',
+    availability: [],
     todos: [
       {
         id: uuidv4(),

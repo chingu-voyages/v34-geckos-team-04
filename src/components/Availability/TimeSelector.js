@@ -11,8 +11,9 @@ const TimeSelector = (props) => {
     setSchedule(newSchedule);
   };
 
-  const submitTime = () => {
-    dispatch({ type: 'addSchedule', eventId, userName });
+  const submitTime = (e) => {
+    e.preventDefault();
+    dispatch({ type: 'addSchedule', schedule, eventId, userName });
   };
 
   return (
@@ -22,7 +23,7 @@ const TimeSelector = (props) => {
         numDays={5}
         minTime={8}
         maxTime={22}
-        hourlyChunks={2}
+        hourlyChunks={1}
         onChange={handleChange}
       />
 

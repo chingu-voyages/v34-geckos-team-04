@@ -9,8 +9,9 @@ const TimeVote = () => {
   const { eventId } = useParams();
   const { eventData } = useContext(EventsContext);
   const { userData: name } = useContext(UserContext);
-  const event = eventData.find((e) => e.id === eventId);
-  const submitted = event.schedule.userName === name;
+  const availability = eventData.find((e) => e.id === eventId).availability;
+  const usernames = availability.map(a => a.username);
+  const submitted = usernames.includes(name);
 
   return (
     <div>
