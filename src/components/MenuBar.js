@@ -1,17 +1,9 @@
-import React from 'react';
-import {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useContext,
-  useCallback,
-} from 'react';
+import React, { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 
 import { Icon } from '@iconify/react';
 import SignoutButton from './shared/SignoutButton';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-//import profilePic from '../assets/profile-pic-dummy.jpg';
 
 const menu = [
   { name: 'Home', icon: 'fa-solid:home' },
@@ -21,23 +13,9 @@ const menu = [
 
 const MenuBar = (props) => {
   const { userData } = useContext(UserContext);
-  const [largeScreen, setLargeScreen] = useState(false);
   const history = useHistory();
   const { url } = useRouteMatch();
   console.log('urlinMenu', url);
-
-  const setNewWidth = useCallback(() => {
-    if (window.innerWidth >= 1023) {
-      setLargeScreen(true);
-    } else {
-      setLargeScreen(false);
-    }
-  }, []);
-
-  //initial rendering
-  useEffect(() => {
-    setNewWidth();
-  }, [setNewWidth]);
 
   const handleIconClick = (iconClicked) => {
     if (iconClicked === 'New Event') {
@@ -48,12 +26,6 @@ const MenuBar = (props) => {
       history.push(`/events`);
     }
   };
-
-  //detecting size change
-  useLayoutEffect(() => {
-    window.addEventListener('resize', setNewWidth);
-    return () => window.removeEventListener('resize', setNewWidth);
-  }, [setNewWidth]);
 
   const icon = menu.map((icon, index) => {
     return (
@@ -69,9 +41,9 @@ const MenuBar = (props) => {
           height='48'
           className='lg:w-3/5 lg:h-3/5 lg:mr-2'
         />
-        {largeScreen && (
-          <p className='lg:text-center lg:w-full lg:text-2xl'>{icon.name}</p>
-        )}
+        <p className='hidden lg:block lg:text-center lg:w-full lg:text-2xl'>
+          {icon.name}
+        </p>
       </li>
     );
   });
@@ -81,22 +53,20 @@ const MenuBar = (props) => {
       <ul className='h-full flex justify-around items-center lg:flex-col lg:justify-start'>
         {icon}
       </ul>
-      {largeScreen && (
-        <React.Fragment>
-          <div className='flex items-center'>
-            <img
-              src={userData.imageUrl}
-              alt='Profile'
-              className='h-12 w-12 m-2'
-            />
-            <div>
-              <div>{userData.name}</div>
-              <div>{userData.email}</div>
-            </div>
+      <React.Fragment>
+        <div className='flex items-center'>
+          <img
+            src={userData.imageUrl}
+            alt='Profile'
+            className='h-12 w-12 m-2'
+          />
+          <div>
+            <div>{userData.name}</div>
+            <div>{userData.email}</div>
           </div>
-          <SignoutButton />
-        </React.Fragment>
-      )}
+        </div>
+        <SignoutButton />
+      </React.Fragment>
     </nav>
   );
 };
