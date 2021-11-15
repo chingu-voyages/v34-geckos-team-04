@@ -15,7 +15,7 @@ const TimeVote = ({ event, eventId }) => {
     <div>
       {/* if user already select their available time */}
       {submitted ? (
-        <VoteResult eventId={eventId} />
+        <VoteResult eventId={eventId} userName={name}/>
       ) : (
         <TimeSelector event={event} eventId={eventId} userName={name} />
       )}

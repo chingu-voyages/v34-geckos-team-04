@@ -3,8 +3,8 @@ import { EventsContext } from '../../contexts/EventsContext';
 import ScheduleSelector from 'react-schedule-selector';
 import { useContext } from 'react';
 
-const VoteResult = (props) => {
-  const { eventId } = props;
+const VoteResult = ({ eventId, userName }) => {
+  const { dispatch } = useContext(EventsContext);
   const { eventData } = useContext(EventsContext);
   const availability = eventData.find((e) => e.id === eventId).availability;
   const schedule = availability.map(a => a.schedules);
@@ -18,19 +18,29 @@ const VoteResult = (props) => {
   const renderCustomDateCell = (time, selected, innerRef) => (
     <div style={{ textAlign: 'center' }} ref={innerRef}>
       {selected ? `${votingCount[time]}` : ' '}
+      {console.log(time)}
     </div>
   )
-    
+
+  const editTime = (e) => {
+    e.preventDefault();
+    dispatch({ type: 'deleteSchedule', schedule, eventId, userName });
+  };
+  //show timeselector page again by deleting user's availability
+
   return (
-    <ScheduleSelector
-      // showing selected time from all users
-      selection={selectedTime}
-      numDays={5}
-      minTime={8}
-      maxTime={22}
-      hourlyChunks={1}
-      renderDateCell={renderCustomDateCell}
-    />
+    <div>
+      <ScheduleSelector
+        // showing selected time from all users
+        selection={selectedTime}
+        numDays={5}
+        minTime={8}
+        maxTime={22}
+        hourlyChunks={1}
+        renderDateCell={renderCustomDateCell}
+      />
+      <button onClick={editTime}>Edit</button>
+  </div>
   );
 };
 

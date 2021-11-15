@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { EventsContext } from '../../contexts/EventsContext';
 import ScheduleSelector from 'react-schedule-selector';
 
-const ScheduleSelect = ({ event, userName, eventId, startDate }) => {
+const ScheduleSelect = ({ userName, eventId, startDate }) => {
     const { dispatch } = useContext(EventsContext);
     const [schedule, setSchedule] = useState([]);
   
