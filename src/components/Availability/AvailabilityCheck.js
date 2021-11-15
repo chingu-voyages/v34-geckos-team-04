@@ -12,11 +12,9 @@ const AvailabilityCheck = () => {
 
   return (
     <Fragment>
-      <Link to={`/events/${eventId}`} className=''>
-        {`< Back to event info`}
-      </Link>
+      <Link to={`/events/${eventId}`}>{`< Back to event info`}</Link>
       <SetDate eventId={eventId} start={start} event={event} />
-      <TimeVote eventId={eventId} event={event}/>
+      <TimeVote eventId={eventId} event={event} />
     </Fragment>
   );
 };
