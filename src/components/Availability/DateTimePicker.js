@@ -22,6 +22,7 @@ const DateTimePicker = ({ minDateTime, setting, eventId, eventDate }) => {
       <div className='hidden lg:flex'>
         <DesktopDateTimePicker
           value={date}
+          inputFormat='dd-MM-yyyy hh:mm a'
           onChange={changeDateHandler}
           minDateTime={minDateTime}
           renderInput={(params) => <TextField {...params} />}
@@ -30,6 +31,7 @@ const DateTimePicker = ({ minDateTime, setting, eventId, eventDate }) => {
       <div className='flex lg:hidden'>
         <MobileDateTimePicker
           value={date}
+          inputFormat='dd-MM-yyyy hh:mm a'
           onChange={changeDateHandler}
           minDateTime={minDateTime}
           renderInput={(params) => <TextField {...params} />}
