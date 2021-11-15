@@ -14,6 +14,7 @@ const VoteResult = (props) => {
   ))
   const votingCount = {}
   selectedTime.forEach(e => votingCount[e] ? votingCount[e]++ : votingCount[e] = 1)
+  console.log(availability)
   console.log(schedule)
   console.log(selectedTime)
   console.log(votingCount[selectedTime[0]])
