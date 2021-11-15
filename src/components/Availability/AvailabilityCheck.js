@@ -16,7 +16,7 @@ const AvailabilityCheck = () => {
         {`< Back to event info`}
       </Link>
       <SetDate eventId={eventId} start={start} event={event} />
-      <TimeVote />
+      <TimeVote eventId={eventId} event={event}/>
     </Fragment>
   );
 };

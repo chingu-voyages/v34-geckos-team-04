@@ -10,7 +10,20 @@ const events = [
     timezone: 'Europe/Istanbul',
     selected: false,
     creator: 'Emir',
-    availability: [],
+    availability: [
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Emir'}
+      },
+      {
+        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Teri'}
+      },
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Patrik'}
+      }
+    ],
     todos: [
       {
         id: uuidv4(),
@@ -44,7 +57,12 @@ const events = [
     timezone: 'Europe/Paris',
     selected: false,
     creator: 'Patrik',
-    availability: [],
+    availability: [
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Patrik'}
+      }
+    ],
     todos: [
       {
         id: uuidv4(),
@@ -71,7 +89,12 @@ const events = [
     timezone: 'America/Los_Angeles',
     selected: false,
     creator: 'Teri',
-    availability: [],
+    availability: [
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Teri'}
+      }
+    ],
     todos: [
       {
         id: uuidv4(),
@@ -98,7 +121,12 @@ const events = [
     timezone: 'America/Los_Angeles',
     selected: false,
     creator: 'Aya',
-    availability: [],
+    availability: [
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Teri'}
+      }
+    ],
     todos: [
       {
         id: uuidv4(),
@@ -125,7 +153,20 @@ const events = [
     timezone: 'Europe/Paris',
     selected: false,
     creator: 'Jihye',
-    availability: [],
+    availability: [
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Emir'}
+      },
+      {
+        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Teri'}
+      },
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Patrik'}
+      }
+    ],
     todos: [
       {
         id: uuidv4(),
@@ -152,6 +193,20 @@ const events = [
     timezone: 'Europe/Istanbul',
     selected: false,
     creator: 'Jihye',
+    availability: [
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Emir'}
+      },
+      {
+        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Teri'}
+      },
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Patrik'}
+      }
+    ],
     todos: [
       {
         id: uuidv4(),
@@ -178,6 +233,20 @@ const events = [
     timezone: 'Europe/Istanbul',
     selected: false,
     creator: 'Jihye',
+    availability: [
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Emir'}
+      },
+      {
+        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Teri'}
+      },
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Patrik'}
+      }
+    ],
     todos: [
       {
         id: uuidv4(),
@@ -204,6 +273,20 @@ const events = [
     timezone: 'Europe/Paris',
     selected: false,
     creator: 'Jihye',
+    availability: [
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Emir'}
+      },
+      {
+        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Teri'}
+      },
+      {
+        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
+        username: {name: 'Patrik'}
+      }
+    ],
     todos: [
       {
         id: uuidv4(),

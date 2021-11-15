@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
 import { EventsContext } from '../../contexts/EventsContext';
 import TimeSelector from './TimeSelector';
 import VoteResult from './VoteResult';
 import { UserContext } from '../../contexts/UserContext';
 
-const TimeVote = () => {
-  const { eventId } = useParams();
+const TimeVote = ({ event, eventId }) => {
   const { eventData } = useContext(EventsContext);
   const { userData: name } = useContext(UserContext);
   const availability = eventData.find((e) => e.id === eventId).availability;
@@ -17,9 +15,9 @@ const TimeVote = () => {
     <div>
       {/* if user already select their available time */}
       {submitted ? (
-        <VoteResult eventId={eventId} />
+        <VoteResult eventId={eventId} userName={name}/>
       ) : (
-        <TimeSelector eventId={eventId} userName={name} />
+        <TimeSelector event={event} eventId={eventId} userName={name} />
       )}
     </div>
   );
