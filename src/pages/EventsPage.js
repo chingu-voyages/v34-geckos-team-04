@@ -28,6 +28,7 @@ export default function EventsPage() {
         link={userData.imageUrl}
         returnBtn={true}
         setActiveEvent={setActiveEvent}
+        activeEvent={activeEvent}
       />
       <MenuBar setActiveEvent={setActiveEvent} />
       <main className='flex flex-row justify-around h-[calc(100%-10rem)] lg:h-full lg:ml-40 xl:ml-56 relative top-20 lg:top-0'>

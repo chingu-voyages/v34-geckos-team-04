@@ -16,7 +16,9 @@ const Header = (props) => {
       <Link
         to='/events'
         onClick={() => props.setActiveEvent(false)}
-        className='inline-block lg:hidden'
+        className={`${
+          !props.activeEvent ? 'invisible' : 'inline-block'
+        } lg:hidden`}
       >
         <Icon
           icon='ic:round-arrow-back-ios'
