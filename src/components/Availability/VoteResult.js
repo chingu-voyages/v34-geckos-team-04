@@ -30,7 +30,7 @@ const VoteResult = ({ eventId, userName }) => {
 
   return (
     <div>
-      <h3 className='text-xl mt-4 mb-4 font-bold'>View Vote Result</h3>
+      <h3 className='text-xl mt-4 mb-4 font-bold'>View Voting Results</h3>
       <ScheduleSelector
         // showing selected time from all users
         selection={selectedTime}

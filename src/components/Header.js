@@ -11,7 +11,7 @@ const Header = (props) => {
   };
 
   return (
-    <header className='bg-white w-screen h-20 flex justify-around items-center lg:hidden'>
+    <header className='bg-white w-screen h-20 flex fixed justify-around items-center lg:hidden'>
       <Icon
         icon='ic:round-arrow-back-ios'
         color='#4a3f3f'
@@ -22,7 +22,7 @@ const Header = (props) => {
       <h2 className='text-2xl'>{props.title}</h2>
       <img
         src={props.link}
-        alt='Profile'
+        alt='Profile Avatar'
         className='h-10 w-10 relative'
         onClick={showUserInfoHandler}
       />
