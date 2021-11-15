@@ -33,6 +33,7 @@ const Header = (props) => {
         alt='Profile Avatar'
         className='h-10 w-10 relative'
         onClick={showUserInfoHandler}
+        referrerPolicy='no-referrer'
       />
       {showUserInfo && (
         <div className='bg-gray-400 absolute top-16 right-1 w-60 shadow-md rounded p-2'>
