@@ -3,7 +3,6 @@ import { Icon } from '@iconify/react';
 import { UserContext } from '../contexts/UserContext';
 import SignoutButton from './shared/SignoutButton';
 import { Link } from 'react-router-dom';
-import { useRouteMatch, useLocation } from 'react-router-dom';
 
 const Header = (props) => {
   const { userData } = useContext(UserContext);
@@ -11,13 +10,6 @@ const Header = (props) => {
   const showUserInfoHandler = () => {
     setShowUserInfo((prev) => !prev);
   };
-  const { url, path } = useRouteMatch();
-  const location = useLocation();
-  console.log('location', location);
-  console.log('url', url);
-  console.log('path', path);
-
-  useEffect(() => setShowUserInfo(false), [location]);
 
   useEffect(() => {
     const listener = (event) => {
