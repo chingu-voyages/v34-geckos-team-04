@@ -12,7 +12,7 @@ const Header = (props) => {
   };
 
   return (
-    <header className='bg-white w-screen h-20 flex fixed justify-around items-center lg:hidden'>
+    <header className='bg-white w-screen h-20 flex fixed justify-around items-center lg:hidden index z-50'>
       <Link
         to='/events'
         onClick={() => props.setActiveEvent(false)}
