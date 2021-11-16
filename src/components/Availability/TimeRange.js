@@ -11,7 +11,6 @@ const TimeRange = ({ eventDate, event, userName, eventId }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
-        disableFuture
         label='START DATE'
         openTo='day'
         views={['year', 'month', 'day']}
