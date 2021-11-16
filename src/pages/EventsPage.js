@@ -16,6 +16,8 @@ export default function EventsPage() {
   const { path } = useRouteMatch();
   const [title, setTitle] = useState('');
 
+  console.log('activeEvent', activeEvent);
+
   function handleEventItemClick(eventName) {
     setActiveEvent(true);
     setTitle(eventName);
