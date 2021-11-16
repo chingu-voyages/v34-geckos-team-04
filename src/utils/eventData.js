@@ -12,17 +12,29 @@ const events = [
     creator: 'Emir',
     availability: [
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Emir'}
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Emir' },
       },
       {
-        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Teri'}
+        schedules: [
+          new Date(
+            'Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Teri' },
       },
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Patrik'}
-      }
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Patrik' },
+      },
     ],
     todos: [
       {
@@ -59,9 +71,13 @@ const events = [
     creator: 'Patrik',
     availability: [
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Patrik'}
-      }
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Patrik' },
+      },
     ],
     todos: [
       {
@@ -91,9 +107,13 @@ const events = [
     creator: 'Teri',
     availability: [
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Teri'}
-      }
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Teri' },
+      },
     ],
     todos: [
       {
@@ -123,9 +143,13 @@ const events = [
     creator: 'Aya',
     availability: [
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Teri'}
-      }
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Teri' },
+      },
     ],
     todos: [
       {
@@ -155,17 +179,29 @@ const events = [
     creator: 'Jihye',
     availability: [
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Emir'}
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Emir' },
       },
       {
-        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Teri'}
+        schedules: [
+          new Date(
+            'Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Teri' },
       },
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Patrik'}
-      }
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Patrik' },
+      },
     ],
     todos: [
       {
@@ -195,17 +231,29 @@ const events = [
     creator: 'Jihye',
     availability: [
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Emir'}
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Emir' },
       },
       {
-        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Teri'}
+        schedules: [
+          new Date(
+            'Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Teri' },
       },
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Patrik'}
-      }
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Patrik' },
+      },
     ],
     todos: [
       {
@@ -235,17 +283,29 @@ const events = [
     creator: 'Jihye',
     availability: [
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Emir'}
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Emir' },
       },
       {
-        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Teri'}
+        schedules: [
+          new Date(
+            'Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Teri' },
       },
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Patrik'}
-      }
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Patrik' },
+      },
     ],
     todos: [
       {
@@ -275,17 +335,29 @@ const events = [
     creator: 'Jihye',
     availability: [
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Emir'}
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Emir' },
       },
       {
-        schedules: ['Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Teri'}
+        schedules: [
+          new Date(
+            'Thu Nov 18 2021 09:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Teri' },
       },
       {
-        schedules: ['Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'],
-        username: {name: 'Patrik'}
-      }
+        schedules: [
+          new Date(
+            'Mon Nov 15 2021 08:00:00 GMT+0100 (Central European Standard Time)'
+          ),
+        ],
+        username: { name: 'Patrik' },
+      },
     ],
     todos: [
       {
