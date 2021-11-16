@@ -48,17 +48,13 @@ export default function EventsPage() {
               <Link key={event.id} to={`/events/${event.id}`}>
                 <EventItem
                   event={event}
-<<<<<<< HEAD
                   onClick={() => {
-                    setActiveEvent(true);
+                    handleEventItemClick(event.name);
                     dispatch({
                       type: 'selectEvent',
                       eventId: event.id,
                     });
                   }}
-=======
-                  onClick={() => handleEventItemClick(event.name)}
->>>>>>> e7d58da9bbe3187c08d77ce62824dfd5dc6c27b2
                 />
               </Link>
             ))}
