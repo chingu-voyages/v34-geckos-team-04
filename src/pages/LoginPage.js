@@ -14,7 +14,6 @@ const LoginPage = () => {
     if (successful) {
       getGoogleAuthedInfo();
     }
-
   };
 
   const getGoogleAuthedInfo = async () => {
@@ -28,10 +27,10 @@ const LoginPage = () => {
   };
 
   return (
-    <div className='flex flex-col justify-around items-center h-screen py-20'>
+    <main className='flex flex-col justify-around items-center h-screen py-20'>
       <div className='flex flex-col items-center'>
         <h1 className='text-5xl lg:text-6xl font-bold text-center mb-8'>
-          Meeting App?
+          readyevent
         </h1>
         <img src={loginPagePic} alt='Meeting app' className='self-center' />
       </div>
@@ -43,7 +42,7 @@ const LoginPage = () => {
         <span className='text-md md:text-lg'>Sign in with Google</span>
       </button>
       {error && <Alert error='Login failed!' detail={error} />}
-    </div>
+    </main>
   );
 };
 export default LoginPage;
