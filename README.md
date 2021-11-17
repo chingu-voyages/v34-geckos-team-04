@@ -7,9 +7,9 @@ Furthermore, everyone can enter who buys/brings what, so you don't end up with t
 LIVE LINK: https://chingu-meeting.herokuapp.com
 
 ## Tech/framework used
-__Built with__
-- React
-- TailwindCSS
+Technology: React, Tailwind CSS
+API: Google API
+Design: Figma
 
 ## Features
 
