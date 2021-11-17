@@ -1,10 +1,10 @@
-# Chingu Meeting App
+# readyevent
 
 ## Overview
-Friends can put in when they are available for a meetup/party (Basically like when2meet). They can also have a shared grocery list that is for BBQ/Birtday party.
+Friends can put in when they are available for a meetup/party (Basically like when2meet). They can also have a shared grocery list that is for BBQ/Birthday party.
 Furthermore, everyone can enter who buys/brings what, so you don't end up with too much or too little stuff.
 
-LIVE LINK: https://chingu-meeting.herokuapp.com
+LIVE LINK: https://readyevent.herokuapp.com/
 
 ## Tech/framework used
 Technology: React, Tailwind CSS, Material UI<br>
@@ -58,7 +58,7 @@ Click on "Google Calendar" on the menu bar to open your Google Calendar.
 ## Contributors
 [Teri Eyenike](https://github.com/terieyenike)
 
-[Emir](https://github.com/themythia)
+[Emir Al](https://github.com/themythia)
 
 [Jihye Kang](https://github.com/bonniekang)
 
