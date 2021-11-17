@@ -18,29 +18,29 @@ Login authentication using Google API.
 ![image](https://user-images.githubusercontent.com/82935527/142176642-a4dce064-a15a-45cd-8b6b-31664e39507c.png)
 
 ### Events Page
-After logging in, the user will be redirected to the Events Page. Clicking on each event will display the details of the event.<br>
-<br>
-![events page](https://user-images.githubusercontent.com/82935527/142177445-1996b0f0-3f4f-462d-97be-01388bf55e06.png)
+After logging in, the user will be redirected to the Events Page. Clicking on each event will display the details of the event.
+![events page](https://user-images.githubusercontent.com/82935527/142185944-fec7381c-3dda-4842-8557-8b9bf024478c.png)
 
 ### Editing Events Info
 Edit events from the "edit" icon. 
-![edit events](https://user-images.githubusercontent.com/82935527/142183095-381374a5-3738-43dd-8d9f-e886134d7b70.png)
+![edit events](https://user-images.githubusercontent.com/82935527/142187487-040a8893-d66a-4307-8276-7dcf15229aba.png)
 
 ### Adding New Events
 You can add new events by clicking on "New Event" on the menu bar.
-![add new events](https://user-images.githubusercontent.com/82935527/142178025-4eb2cccb-bbcb-4d1a-aff9-473b84c79f47.png)
+![add new events](https://user-images.githubusercontent.com/82935527/142186133-d5a3af40-b87b-48f5-9031-6d3f77ce2862.png)
 
 ### Todo Lists
 A part of the todo list are shown in the events details. Click on "..." on the todo list on the event page to view more todos, add, edit, delete todos.
-![todo list icon](https://user-images.githubusercontent.com/82935527/142183570-5d7972ee-bf63-40f6-bf31-c3cfc1f5745e.png)
-![todo list](https://user-images.githubusercontent.com/82935527/142178529-11d09f27-fb99-4023-86c9-a589c661b963.png)
+![todo icon](https://user-images.githubusercontent.com/82935527/142186446-2befa378-8fb4-4a6f-a651-66f2ba6280a2.png)
+![todo list](https://user-images.githubusercontent.com/82935527/142186464-7e9ec10d-2dbf-4119-b1eb-8c12ae741f92.png)
 
 ### Availability Vote and Setting Date
 Check participants' available time on this page. Enter your available time and view the voting results. Also set the final time here based on everyone's availability. 
+![availability](https://user-images.githubusercontent.com/82935527/142187105-f3fa1c65-e6da-4c9e-adff-753c993cd06c.png)
 
 ### Share Event Info on Google Calendar
 You can share event info from by clicking on the share icon on the event details page.
-![share event](https://user-images.githubusercontent.com/82935527/142181941-c42fa24f-58c4-40ac-a42f-a607a0dbcafc.png)
+![share event info](https://user-images.githubusercontent.com/82935527/142186710-80d81d01-7c16-4182-8a95-d91ca32052af.png)
 
 ### Google Calendar
 Click on "Google Calendar" on the menu bar to open your Google Calendar. 
