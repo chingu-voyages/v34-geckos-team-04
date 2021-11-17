@@ -40,7 +40,12 @@ const VoteResult = ({ eventId, userName }) => {
         hourlyChunks={1}
         renderDateCell={renderCustomDateCell}
       />
-      <button onClick={editTime}>Edit</button>
+      <button
+        className='w-16 h-8 bg-gray-400 text-white rounded my-3'
+        onClick={editTime}
+      >
+        Edit
+      </button>
     </div>
   );
 };
