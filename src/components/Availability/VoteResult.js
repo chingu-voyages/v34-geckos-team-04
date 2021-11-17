@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { EventsContext } from '../../contexts/EventsContext';
 import ScheduleSelector from 'react-schedule-selector';
 import { useContext } from 'react';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from '@mui/lab/DatePicker';
+import TextField from '@mui/material/TextField';
 
-const VoteResult = ({ eventId, userName, numberOfGrid }) => {
+const VoteResult = ({ eventId, userName, numberOfGrid, event }) => {
   const { dispatch } = useContext(EventsContext);
   const { eventData } = useContext(EventsContext);
   const availability = eventData.find((e) => e.id === eventId).availability;
@@ -14,6 +18,7 @@ const VoteResult = ({ eventId, userName, numberOfGrid }) => {
   selectedTime.forEach((e) =>
     votingCount[e] ? votingCount[e]++ : (votingCount[e] = 1)
   );
+  const [date, setDate] = useState(event.start);
 
   const renderCustomDateCell = (time, selected, innerRef) => (
     <div style={{ textAlign: 'center' }} ref={innerRef}>
@@ -29,19 +34,33 @@ const VoteResult = ({ eventId, userName, numberOfGrid }) => {
   //show timeselector page again by deleting user's availability
 
   return (
-    <div>
-      <h3 className='text-xl mt-4 mb-4 font-bold'>View Voting Results</h3>
-      <ScheduleSelector
-        // showing selected time from all users
-        selection={selectedTime}
-        numDays={numberOfGrid}
-        minTime={8}
-        maxTime={22}
-        hourlyChunks={1}
-        renderDateCell={renderCustomDateCell}
-      />
-      <button onClick={editTime}>Edit</button>
-    </div>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <h3 className='text-xl mt-4 mb-4 font-bold'>View Voting Results</h3>
+        <div className='mb-8'>
+          <DatePicker
+              label='START DATE'
+              openTo='day'
+              views={['year', 'month', 'day']}
+              value={date}
+              onChange={(newDate) => {
+              setDate(newDate);
+              }}
+              renderInput={(params) => <TextField {...params} />}
+          />
+        </div>
+        <div>
+          <ScheduleSelector
+              selection={selectedTime}
+              startDate={date}
+              numDays={numberOfGrid}
+              minTime={8}
+              maxTime={22}
+              hourlyChunks={1}
+              renderDateCell={renderCustomDateCell}
+          />
+        </div>
+        <button onClick={editTime}>Edit</button>
+      </LocalizationProvider>
   );
 };
 

@@ -34,7 +34,7 @@ const TimeVote = ({ event, eventId }) => {
     <div>
       {/* if user already select their available time */}
       {submitted ? (
-        <VoteResult eventId={eventId} userName={name} numberOfGrid={numberOfGrid}/>
+        <VoteResult eventId={eventId} userName={name} numberOfGrid={numberOfGrid} event={event}/>
       ) : (
         <TimeSelector event={event} eventId={eventId} userName={name} numberOfGrid={numberOfGrid}/>
       )}
