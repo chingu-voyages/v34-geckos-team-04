@@ -3,7 +3,7 @@ import { EventsContext } from '../../contexts/EventsContext';
 import ScheduleSelector from 'react-schedule-selector';
 import { useContext } from 'react';
 
-const VoteResult = ({ eventId, userName }) => {
+const VoteResult = ({ eventId, userName, numberOfGrid }) => {
   const { dispatch } = useContext(EventsContext);
   const { eventData } = useContext(EventsContext);
   const availability = eventData.find((e) => e.id === eventId).availability;
@@ -34,7 +34,7 @@ const VoteResult = ({ eventId, userName }) => {
       <ScheduleSelector
         // showing selected time from all users
         selection={selectedTime}
-        numDays={5}
+        numDays={numberOfGrid}
         minTime={8}
         maxTime={22}
         hourlyChunks={1}
