@@ -24,12 +24,6 @@ export default function EventSubMenu(props) {
       icon: 'bx:bxs-edit',
       isNavLink: false,
     },
-    {
-      name: 'Messages',
-      icon: 'bx:bxs-message',
-      isNavLink: true,
-      path: '/messages',
-    },
   ];
 
   const {
