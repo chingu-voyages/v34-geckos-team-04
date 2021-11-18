@@ -34,33 +34,38 @@ const VoteResult = ({ eventId, userName, numberOfGrid, event }) => {
   //show timeselector page again by deleting user's availability
 
   return (
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <h3 className='text-xl mt-4 mb-4 font-bold'>View Voting Results</h3>
-        <div className='mb-8'>
-          <DatePicker
-              label='START DATE'
-              openTo='day'
-              views={['year', 'month', 'day']}
-              value={date}
-              onChange={(newDate) => {
-              setDate(newDate);
-              }}
-              renderInput={(params) => <TextField {...params} />}
-          />
-        </div>
-        <div>
-          <ScheduleSelector
-              selection={selectedTime}
-              startDate={date}
-              numDays={numberOfGrid}
-              minTime={8}
-              maxTime={22}
-              hourlyChunks={1}
-              renderDateCell={renderCustomDateCell}
-          />
-        </div>
-        <button onClick={editTime}>Edit</button>
-      </LocalizationProvider>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <h3 className='text-xl mt-4 mb-4 font-bold'>View Voting Results</h3>
+      <div className='mb-8'>
+        <DatePicker
+          label='START DATE'
+          openTo='day'
+          views={['year', 'month', 'day']}
+          value={date}
+          onChange={(newDate) => {
+            setDate(newDate);
+          }}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </div>
+      <div>
+        <ScheduleSelector
+          selection={selectedTime}
+          startDate={date}
+          numDays={numberOfGrid}
+          minTime={8}
+          maxTime={22}
+          hourlyChunks={1}
+          renderDateCell={renderCustomDateCell}
+        />
+      </div>
+      <button
+        className='w-16 h-8 bg-gray-400 text-white rounded my-3'
+        onClick={editTime}
+      >
+        Edit
+      </button>
+    </LocalizationProvider>
   );
 };
 
