@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { EventsContext } from '../../contexts/EventsContext';
 import ScheduleSelector from 'react-schedule-selector';
 
-const ScheduleSelect = ({ userName, eventId, startDate }) => {
+const ScheduleSelect = ({ userName, eventId, startDate, numberOfGrid }) => {
   const { dispatch } = useContext(EventsContext);
   const [schedule, setSchedule] = useState([]);
 
@@ -19,7 +19,7 @@ const ScheduleSelect = ({ userName, eventId, startDate }) => {
     <div>
       <ScheduleSelector
         selection={schedule}
-        numDays={5}
+        numDays={numberOfGrid}
         minTime={8}
         maxTime={22}
         hourlyChunks={1}
