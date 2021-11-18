@@ -9,7 +9,8 @@ LIVE LINK: https://readyevent.herokuapp.com/
 ## Tech/framework used
 Technology: React, Tailwind CSS, Material UI<br>
 API: Google API<br>
-Design: Figma
+Design: Figma<br>
+Project Management: Github Projects
 
 ## Features
 
