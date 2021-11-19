@@ -1,26 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { EventsContext } from '../contexts/EventsContext';
 import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
 
-const eventSubMenu = [
-  {
-    name: 'Availability',
-    icon: 'fa-solid:user-clock',
-    isNavLink: true,
-    path: '/availability',
-  },
-  {
-    name: 'Share',
-    icon: 'fa-solid:share-alt',
-    isNavLink: false,
-  },
-  {
-    name: 'Edit',
-    icon: 'bx:bxs-edit',
-    isNavLink: false,
-  },
-];
 export default function EventSubMenu(props) {
+  const { eventData } = useContext(EventsContext);
+  const [selectedEvent] = eventData.filter((e) => e.selected);
+
+  const eventSubMenu = [
+    {
+      name: 'Availability',
+      icon: 'fa-solid:user-clock',
+      isNavLink: true,
+      path: `/events/${selectedEvent.id}/availability`,
+    },
+    {
+      name: 'Share',
+      icon: 'fa-solid:share-alt',
+      isNavLink: false,
+    },
+    {
+      name: 'Edit',
+      icon: 'bx:bxs-edit',
+      isNavLink: false,
+    },
+  ];
+
   const {
     name,
     desc,
