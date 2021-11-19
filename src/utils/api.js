@@ -96,7 +96,6 @@ export const editCalendarEvent = (event, googleEventId) => {
 
       request.execute((event) => {
         console.log('Event patched: ', event);
-        window.open(event.htmlLink);
       });
     });
   } catch (error) {
