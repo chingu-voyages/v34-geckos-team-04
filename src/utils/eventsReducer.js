@@ -138,7 +138,6 @@ const eventsReducer = (state, action) => {
       );
 
     case 'deleteEvent':
-      console.log('deleted');
       return state.filter((e) => e.id !== action.eventId);
     default:
       return state;

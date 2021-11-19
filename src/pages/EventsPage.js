@@ -16,10 +16,7 @@ export default function EventsPage() {
   const { userData } = useContext(UserContext);
   const { path } = useRouteMatch();
   const { dispatch } = useContext(EventsContext);
-  console.log('setActiveEent', activeEvent);
   const [title, setTitle] = useState('');
-
-  console.log('activeEvent', activeEvent);
 
   function handleEventItemClick(eventName) {
     setActiveEvent(true);
@@ -70,7 +67,7 @@ export default function EventsPage() {
               <NewEvent setActiveEvent={setActiveEvent} />
             </Route>
             <Route path={`/events/:eventId`} exact>
-              <EventInfo />
+              <EventInfo setActiveEvent={setActiveEvent} />
             </Route>
             <Route path='/events/:eventId/todos'>
               <ToDoList />

@@ -52,7 +52,6 @@ export default function EventSubMenu(props) {
           });
 
           request.execute((event) => {
-            console.log('Event created: ', event);
             navigator.clipboard
               .writeText(event.htmlLink)
               .then(() => setCopy(true))

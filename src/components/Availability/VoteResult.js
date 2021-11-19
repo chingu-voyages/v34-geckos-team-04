@@ -23,7 +23,6 @@ const VoteResult = ({ eventId, userName, numberOfGrid, event }) => {
   const renderCustomDateCell = (time, selected, innerRef) => (
     <div style={{ textAlign: 'center' }} ref={innerRef}>
       {selected ? `${votingCount[time]}` : ' '}
-      {console.log(time)}
     </div>
   );
 
